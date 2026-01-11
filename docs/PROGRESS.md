@@ -178,7 +178,64 @@ ORBIT/
 **Owner**: Luna (OrbitAgent)  
 **Completion Date**: 11 Januari 2026  
 
-**Total Development Time**: ~4 hours (highly efficient! 🔥)
+**Total Development Time**: ~5 hours (highly efficient! 🔥)
+
+---
+
+---
+
+## 🚀 MVP v0.2 — EVOLUTION BEGINS
+
+**Start Date**: 11 Januari 2026  
+**Target Completion**: 18 Januari 2026  
+**Status**: 🟡 In Progress  
+
+### Vision v0.2:
+Evolusi dari v0.1 dengan fokus pada **AI intelligence**, **native desktop experience**, dan **production polish**. Tidak lagi web app, tapi **true desktop companion** dengan Ollama AI brain dan Tauri packaging.
+
+### Core Upgrades:
+1. 🧠 **Brain Upgrade**: Ollama LLM integration dengan graceful fallback
+2. 🖥️ **Body Upgrade**: Tauri desktop app (transparent, always-on-top)
+3. 🎨 **UI Polish**: Mascot + smart bubble timing + animations
+
+---
+
+## 📅 11 Januari 2026 - Phase 1 Started
+
+### ✅ Phase 1: Planning & Documentation
+
+**Tasks Completed:**
+- ✅ Created `docs/RENCANA_v0.2.md` dengan detailed roadmap
+- ✅ Defined 5 phases dengan clear deliverables
+- ✅ Established success metrics dan testing strategy
+- ⏳ Updating PROGRESS.md (this entry)
+
+**Key Decisions:**
+- **Ollama Integration**: Health check on startup, auto-fallback to Dummy
+- **Tauri Configuration**: Transparent window, always-on-top, skip taskbar
+- **Smart Bubble Timer**: `duration = (char_count / 15) + 2` seconds
+- **Confidence Decay**: Max 50% reduction untuk frequently dismissed intents
+- **Mascot Design**: SVG-based, 4 states (idle, observing, suggesting, executing)
+
+**Timeline:**
+- Phase 1: 0.5 hours ✅
+- Phase 2: 4 hours (AI Brain)
+- Phase 3: 2 hours (Decision Engine)
+- Phase 4: 5 hours (Tauri)
+- Phase 5: 4 hours (UI/UX)
+- **Total**: ~15.5 hours (~2 working days)
+
+---
+
+**Next Steps**: 
+1. Commit Phase 1 completion
+2. Proceed to Phase 2: AI Brain Upgrade
+3. Install `ollama` Python library
+4. Implement `OllamaClient` class
+
+**Status**: 📝 Planning complete, awaiting approval to proceed  
+**Phase**: Phase 1 ✅ → Phase 2 (AI Brain)  
+**Owner**: Luna (Senior Engineer Mode)
 
 ---
 
