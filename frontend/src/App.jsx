@@ -22,7 +22,23 @@ function App() {
 
     // Listen for UI updates from backend
     ipcBridge.on('ui_update', (data) => {
-      console.log('📥 UI Update:', data)
+      console.log('%c📥 UI Update from Backend', 'background: #4CAF50; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold')
+      console.group('Update Details')
+      console.log('🎭 State:', data.state || 'idle')
+      console.log('😊 Emotion:', data.emotion || 'neutral')
+      console.log('👁️ Visible:', data.visible !== false)
+      
+      if (data.bubble) {
+        console.log('%c💬 Bubble Chat Active', 'color: #2196F3; font-weight: bold')
+        console.log('  📝 Message:', data.bubble.text)
+        console.log('  🎯 Actions:', data.bubble.actions || [])
+        if (data.bubble.intent_id) {
+          console.log('  🆔 Intent ID:', data.bubble.intent_id)
+        }
+      } else {
+        console.log('💬 Bubble: None')
+      }
+      console.groupEnd()
       
       setState(data.state || 'idle')
       
