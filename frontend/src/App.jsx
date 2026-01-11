@@ -67,17 +67,13 @@ function App() {
 
   return (
     <div className="orbit-widget">
-      {visible && (
-        <>
-          {bubble && state === 'suggesting' && (
-            <LunaBubble
-              text={bubble.text}
-              actions={bubble.actions}
-              onAction={handleAction}
-            />
-          )}
-          <LunaIcon state={state} />
-        </>
+      <LunaIcon state={state} />
+      {visible && bubble && state === 'suggesting' && (
+        <LunaBubble
+          text={bubble.text}
+          actions={bubble.actions}
+          onAction={handleAction}
+        />
       )}
     </div>
   )
