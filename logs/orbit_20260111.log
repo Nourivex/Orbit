@@ -58,3 +58,144 @@
 2026-01-11 11:22:21 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
 2026-01-11 11:22:21 - __main__ - INFO - ============================================================
 2026-01-11 11:22:21 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 11:24:51 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 11:24:51 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:24:51 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:24:51 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:24:51 - utils.db - INFO - Database schema initialized
+2026-01-11 11:24:51 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:24:51 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:24:51 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:24:51 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:24:51 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:24:51 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:24:51 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:24:51 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:24:51 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:24:51 - __main__ - INFO - ============================================================
+2026-01-11 11:24:51 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 11:24:51 - __main__ - INFO - ============================================================
+2026-01-11 11:24:51 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 11:24:51 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 11:24:51 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 11:24:51 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 11:24:51 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 11:24:51 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 11:24:51 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:25:01 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:25:01 - backend.core.decision_engine - INFO - Intent APPROVED: info (confidence: 0.75)
+2026-01-11 11:25:01 - __main__ - INFO - ✅ Intent approved: IntentType.INFO
+2026-01-11 11:25:01 - __main__ - ERROR - ❌ Error in main loop: 'UIOutput' object is not subscriptable
+Traceback (most recent call last):
+  File "H:\AiProject\ORBIT\main_v2.py", line 145, in _main_loop
+    logger.info(f"🎨 FSM State: {ui_output['state']}")
+                                 ~~~~~~~~~^^^^^^^^^
+TypeError: 'UIOutput' object is not subscriptable
+2026-01-11 11:25:06 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:25:16 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:25:26 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:25:29 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 11:25:29 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 11:25:29 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 11:25:29 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 11:25:30 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 11:25:30 - __main__ - INFO - ============================================================
+2026-01-11 11:25:30 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 11:25:30 - __main__ - INFO -    Iterations: 5
+2026-01-11 11:25:30 - __main__ - INFO -    Intents Generated: 5
+2026-01-11 11:25:30 - __main__ - INFO -    Intents Approved: 1
+2026-01-11 11:25:30 - __main__ - INFO -    Intents Rejected: 4
+2026-01-11 11:25:30 - __main__ - INFO -    Errors: 1
+2026-01-11 11:25:30 - __main__ - INFO - ============================================================
+2026-01-11 11:25:30 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 11:25:50 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 11:25:50 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:25:50 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:25:50 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:25:50 - utils.db - INFO - Database schema initialized
+2026-01-11 11:25:50 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:25:50 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:25:50 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:25:50 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:25:50 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:25:50 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:25:50 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:25:50 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:25:50 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:25:50 - __main__ - INFO - ============================================================
+2026-01-11 11:25:50 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 11:25:50 - __main__ - INFO - ============================================================
+2026-01-11 11:25:50 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 11:25:50 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 11:25:50 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 11:25:50 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 11:25:50 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 11:25:50 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 11:25:50 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:26:00 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:26:00 - backend.core.decision_engine - INFO - Intent APPROVED: info (confidence: 0.75)
+2026-01-11 11:26:00 - __main__ - INFO - ✅ Intent approved: IntentType.INFO
+2026-01-11 11:26:00 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 11:26:10 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:26:15 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 11:26:15 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 11:26:15 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 11:26:15 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 11:26:18 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 11:26:18 - __main__ - INFO - ============================================================
+2026-01-11 11:26:18 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 11:26:18 - __main__ - INFO -    Iterations: 3
+2026-01-11 11:26:18 - __main__ - INFO -    Intents Generated: 3
+2026-01-11 11:26:18 - __main__ - INFO -    Intents Approved: 1
+2026-01-11 11:26:18 - __main__ - INFO -    Intents Rejected: 2
+2026-01-11 11:26:18 - __main__ - INFO -    Errors: 0
+2026-01-11 11:26:18 - __main__ - INFO - ============================================================
+2026-01-11 11:26:18 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 11:27:49 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 11:27:49 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:27:49 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:27:49 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:27:49 - utils.db - INFO - Database schema initialized
+2026-01-11 11:27:49 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:27:49 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:27:49 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:27:49 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:27:49 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:27:49 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:27:49 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:27:49 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:27:49 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:27:49 - __main__ - INFO - ============================================================
+2026-01-11 11:27:49 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 11:27:49 - __main__ - INFO - ============================================================
+2026-01-11 11:27:49 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 11:27:49 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 11:27:49 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 11:27:49 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 11:27:49 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 11:27:49 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 11:27:49 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:27:59 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:28:09 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:28:19 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:28:19 - backend.core.decision_engine - INFO - Intent APPROVED: info (confidence: 0.75)
+2026-01-11 11:28:19 - __main__ - INFO - ✅ Intent approved: IntentType.INFO
+2026-01-11 11:28:19 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 11:28:29 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 11:28:39 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 11:28:39 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 11:28:39 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 11:28:39 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 11:28:40 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 11:28:40 - __main__ - INFO - ============================================================
+2026-01-11 11:28:40 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 11:28:40 - __main__ - INFO -    Iterations: 5
+2026-01-11 11:28:40 - __main__ - INFO -    Intents Generated: 5
+2026-01-11 11:28:40 - __main__ - INFO -    Intents Approved: 1
+2026-01-11 11:28:40 - __main__ - INFO -    Intents Rejected: 4
+2026-01-11 11:28:40 - __main__ - INFO -    Errors: 0
+2026-01-11 11:28:40 - __main__ - INFO - ============================================================
+2026-01-11 11:28:40 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!

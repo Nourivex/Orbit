@@ -26,26 +26,39 @@ class IPCServer:
         
     async def start(self):
         """Start WebSocket server"""
-        self.server = await websockets.serve(
-            self._handler,
-            self.host,
-            self.port
-        )
-        self.running = True
-        logger.info(f"🚀 IPC Server started on ws://{self.host}:{self.port}")
+        try:
+            self.server = await websockets.serve(
+                self._handler,
+                self.host,
+                self.port,
+                ping_interval=20,
+                ping_timeout=10
+            )
+            self.running = True
+            logger.info(f"🚀 IPC Server started on ws://{self.host}:{self.port}")
+        except Exception as e:
+            logger.error(f"❌ Failed to start IPC server: {e}")
+            raise
         
     async def _handler(self, websocket: WebSocketServerProtocol):
         """Handle new WebSocket connection"""
         self.clients.add(websocket)
-        logger.info(f"✅ New client connected: {websocket.remote_address}")
+        remote = websocket.remote_address if hasattr(websocket, 'remote_address') else 'Unknown'
+        logger.info(f"✅ New client connected: {remote}")
         
         try:
             async for message in websocket:
-                await self._handle_message(websocket, message)
-        except websockets.ConnectionClosed:
-            logger.info(f"🔌 Client disconnected: {websocket.remote_address}")
+                try:
+                    await self._handle_message(websocket, message)
+                except Exception as e:
+                    logger.error(f"❌ Error handling message: {e}")
+        except websockets.ConnectionClosed as e:
+            logger.info(f"🔌 Client disconnected: {remote} (code: {e.code})")
+        except Exception as e:
+            logger.error(f"❌ Unexpected error in handler: {e}")
         finally:
-            self.clients.remove(websocket)
+            if websocket in self.clients:
+                self.clients.remove(websocket)
             
     async def _handle_message(self, websocket: WebSocketServerProtocol, raw_message: str):
         """Process incoming message from client"""

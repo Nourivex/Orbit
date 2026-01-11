@@ -103,7 +103,7 @@ class ORBITOrchestrator:
         self._start_ipc_server()
         
         # Start context monitoring
-        self.context_hub.start_continuous_monitoring(interval=2.0)
+        self.context_hub.start(save_to_db=True)
         logger.info("✅ Context monitoring started")
         
         # Run main loop
@@ -142,12 +142,20 @@ class ORBITOrchestrator:
                 ui_output = self.behavior_controller.process_decision(decision)
                 
                 if ui_output:
-                    logger.info(f"🎨 FSM State: {ui_output['state']}")
+                    logger.info(f"🎨 FSM State: {ui_output.state}")
                     
                     # === LAYER 4: Send to UI ===
                     if self.ipc_loop and self.ipc_server.running:
+                        # Convert UIOutput dataclass to dict
+                        ui_dict = {
+                            'state': ui_output.state,
+                            'emotion': ui_output.emotion,
+                            'visible': ui_output.visible,
+                            'bubble': ui_output.bubble,
+                            'actions': ui_output.actions
+                        }
                         asyncio.run_coroutine_threadsafe(
-                            self.ipc_server.send_ui_update(ui_output),
+                            self.ipc_server.send_ui_update(ui_dict),
                             self.ipc_loop
                         )
                 
@@ -173,7 +181,7 @@ class ORBITOrchestrator:
             self.ipc_loop.call_soon_threadsafe(self.ipc_loop.stop)
         
         # Stop monitoring
-        self.context_hub.stop_continuous_monitoring()
+        self.context_hub.stop()
         
         # Print stats
         logger.info("=" * 60)
