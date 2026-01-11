@@ -1,0 +1,22 @@
+# ORBIT Backend Dependencies
+# Layer 0 - Context & Event System
+
+# Process & System Monitoring
+psutil>=5.9.0
+pywin32>=306  # for win32gui, win32api
+
+# File System Monitoring
+watchdog>=4.0.0
+
+# Database
+# sqlite3 is built-in to Python
+
+# HTTP Client (for future LLM integration)
+httpx>=0.27.0
+
+# Logging & Configuration
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
