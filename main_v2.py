@@ -16,7 +16,7 @@ from typing import Optional
 sys.path.insert(0, str(Path(__file__).parent / "backend"))
 
 from backend.core.context_hub import ContextHub
-from backend.core.ai_brain import AIBrain, AIMode
+from backend.core.ai_brain_v2 import AIBrainV2, AIMode
 from backend.core.decision_engine import DecisionEngine
 from backend.core.behavior_fsm import BehaviorController, State
 from backend.utils.logger import setup_logger
@@ -36,9 +36,15 @@ class ORBITOrchestrator:
         logger.info("🔧 Initializing ORBIT layers...")
         self.context_hub = ContextHub()
         
-        ai_mode_str = self.config.get("ai_mode", "dummy")
-        ai_mode = AIMode.OLLAMA if ai_mode_str == "ollama" else AIMode.DUMMY
-        self.ai_brain = AIBrain(mode=ai_mode)
+        ai_mode_str = self.config.get("ai_mode", "auto")
+        if ai_mode_str == "ollama":
+            ai_mode = AIMode.OLLAMA
+        elif ai_mode_str == "dummy":
+            ai_mode = AIMode.DUMMY
+        else:
+            ai_mode = AIMode.AUTO
+        
+        self.ai_brain = AIBrainV2(mode=ai_mode)
         
         self.decision_engine = DecisionEngine()
         self.behavior_controller = BehaviorController()
