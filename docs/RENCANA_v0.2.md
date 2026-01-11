@@ -123,9 +123,10 @@ Current context:
 
 Based on this context, decide on ONE action:
 1. "suggest_help" - User might need assistance
-2. "remind" - Gentle reminder about task/break
-3. "info" - Interesting context-based insight
-4. "none" - No action needed (user is focused)
+2. "none" - No action needed (user is focused)
+
+⚠️ ALLOWED INTENTS (v0.2): suggest_help, none ONLY
+(remind & info → v0.3)
 
 Respond in JSON:
 {
@@ -135,6 +136,7 @@ Respond in JSON:
   "message": "Kamu lagi stuck? Mau aku bantu debug atau cari solusi?"
 }
 
+⚠️ Field `reasoning` is strictly internal and never surfaced to UI or persisted.
 Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 ```
 
@@ -326,6 +328,75 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 
 ---
 
+## ✅ Definition of Done — MVP v0.2
+
+MVP v0.2 dianggap **COMPLETE** jika:
+- ✅ ORBIT berjalan sebagai aplikasi desktop Tauri (.exe)
+- ✅ AI Brain otomatis switch Ollama ↔ Dummy tanpa crash
+- ✅ Suggestion (`suggest_help`) muncul tepat waktu & bisa di-dismiss
+- ✅ Tidak ada UI muncul tanpa Decision Engine approval
+- ✅ ORBIT dapat berjalan 30 menit tanpa memory leak
+- ✅ Bubble timer auto-dismiss based on reading speed
+- ✅ Intent types locked to `suggest_help` + `none` only
+
+---
+
+## 🛑 Kill Switch (Safety Feature)
+
+**Motivation**: Penyelamat kalau user lagi meeting / fokus total.
+
+**Implementation**:
+- Global flag: `ORBIT_ENABLED=false` di `config/orbit_config.json`
+- Jika `false`:
+  - Context monitoring tetap berjalan (background)
+  - AI Brain & Decision Engine **disabled**
+  - UI tidak pernah muncul
+- Toggle via config file (manual edit untuk v0.2, UI toggle di v0.3)
+
+**Usage**:
+```json
+{
+  "orbit_enabled": false,  // ← Kill switch
+  "ai_mode": "ollama",
+  ...
+}
+```
+
+---
+
+## 🤖 Dummy Mode UX Rules
+
+**Tujuan**: Supaya Dummy mode tidak terasa 'bodoh' atau annoying.
+
+**Rules (Enforced in Code)**:
+1. **Frequency Limit**: Tidak boleh muncul >1x dalam 15 menit
+2. **Message Quality**: Harus netral & singkat (max 80 chars)
+3. **No Repetition**: Tidak boleh mengulang kalimat yang sama 2x berturut-turut
+4. **Context-Aware**: Pool harus punya minimum 15 variasi message
+
+**Implementation**:
+```python
+class DummyModePool:
+    def __init__(self):
+        self.messages = [
+            "Sudah 5 menit idle nih, butuh bantuan?",
+            "Lagi nyangkut? Aku bisa bantu cari solusi",
+            "Break dulu yuk, udah lama fokus",
+            # ... 12 more variations
+        ]
+        self.last_message = None
+        self.last_suggest_time = 0
+    
+    def get_message(self) -> str:
+        # Filter out last message
+        available = [m for m in self.messages if m != self.last_message]
+        msg = random.choice(available)
+        self.last_message = msg
+        return msg
+```
+
+---
+
 ## 📊 Success Metrics (v0.2)
 
 | Metric | Target | Measurement |
@@ -368,6 +439,11 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 ❌ **Auto-start on Boot** - Planned for v0.3  
 ❌ **Multi-language Support** - Planned for v0.4  
 ❌ **Cloud Sync** - Planned for v1.0  
+❌ **Intent types**: `remind` & `info` - **LOCKED OUT**, moved to v0.3  
+
+**Scope Lock Rationale**:  
+v0.2 fokus membuat `suggest_help` terasa **tepat waktu & manusiawi**.  
+Ini bukan downgrade — ini **fokus**. Quality > Quantity.  
 
 ---
 
