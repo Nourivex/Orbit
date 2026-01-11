@@ -1,0 +1,60 @@
+2026-01-11 11:17:01 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:17:01 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:17:01 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:17:01 - utils.db - INFO - Database schema initialized
+2026-01-11 11:17:01 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:17:01 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:17:01 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:17:01 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:17:01 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:17:01 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:17:01 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:17:01 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:17:01 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:17:01 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:17:23 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:17:23 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:17:23 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:17:23 - utils.db - INFO - Database schema initialized
+2026-01-11 11:17:23 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:17:23 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:17:23 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:17:23 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:17:23 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:17:23 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:17:23 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:17:23 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:17:23 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:17:23 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:17:32 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:17:32 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:17:32 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:17:32 - utils.db - INFO - Database schema initialized
+2026-01-11 11:17:32 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:17:32 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:17:32 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:17:32 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:17:32 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:17:32 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:17:32 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:17:32 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:17:32 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:17:32 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: none
+2026-01-11 11:22:21 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 11:22:21 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 11:22:21 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 11:22:21 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 11:22:21 - utils.db - INFO - Database schema initialized
+2026-01-11 11:22:21 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 11:22:21 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 11:22:21 - backend.core.ai_brain - INFO - AIBrain initialized (mode: dummy, model: llama3.2)
+2026-01-11 11:22:21 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 11:22:21 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 11:22:21 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 11:22:21 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 11:22:21 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 11:22:21 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 11:22:21 - __main__ - INFO - ============================================================
+2026-01-11 11:22:21 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 11:22:21 - __main__ - INFO - ============================================================
+2026-01-11 11:22:21 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765

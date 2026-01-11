@@ -418,3 +418,31 @@ class BehaviorController:
             return True
         
         return False
+    
+    def process_decision(self, decision):
+        """
+        Process decision result from Layer 2 and generate UI output
+        
+        Args:
+            decision: DecisionResult from DecisionEngine
+            
+        Returns:
+            UI output dict or None
+        """
+        if decision.approved and decision.intent:
+            # Intent approved, transition to suggesting
+            self.handle_intent_approved(decision.intent)
+            return self.fsm.get_ui_output()
+        elif not decision.approved:
+            # Intent rejected, stay idle or go to appropriate state
+            if "Cooldown" in decision.reason or "spam" in decision.reason.lower():
+                # Cooldown active, suppress
+                if self.fsm.current_state not in (State.SUPPRESSED, State.COOLDOWN_GLOBAL):
+                    self.fsm.trigger_event(Event.TIMEOUT)  # Transition to idle
+            return None
+        return None
+    
+    def get_current_state(self) -> State:
+        """Get current FSM state"""
+        return self.fsm.current_state
+
