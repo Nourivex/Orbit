@@ -47,9 +47,9 @@ class CooldownManager:
     
     def __init__(
         self,
-        per_intent_cooldown: int = 10,       # 10s for v0.2 testing (180s production)
-        global_cooldown: int = 5,            # 5s for v0.2 testing (60s production)
-        dismiss_cooldown: int = 600          # 10 minutes
+        per_intent_cooldown: int = 30,       # 30s for v0.2 testing (180s production)
+        global_cooldown: int = 15,           # 15s for v0.2 testing (60s production)
+        dismiss_cooldown: int = 300          # 5min for v0.2 testing (600s production)
     ):
         """
         Initialize cooldown manager
@@ -156,8 +156,8 @@ class SpamFilter:
     
     def __init__(
         self,
-        max_popups_per_hour: int = 100,      # 100 for v0.2 testing (5 production)
-        same_intent_window: int = 15         # 15s for v0.2 testing (900s production)
+        max_popups_per_hour: int = 20,       # 20 for v0.2 testing (5 production)
+        same_intent_window: int = 60         # 60s for v0.2 testing (900s production)
     ):
         """
         Initialize spam filter
