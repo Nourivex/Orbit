@@ -76,12 +76,13 @@ MVP v0.2 adalah evolusi dari v0.1 yang **fokus pada production-readiness**, **AI
 
 ---
 
-### PHASE 2: AI Brain Upgrade (Hybrid Logic) 🧠
+### PHASE 2: AI Brain Upgrade (Hybrid Logic) 🧠 ✅ COMPLETE
+**Status**: ✅ Delivered with critical bug fixes
 **Tujuan**: Integrasi Ollama dengan graceful fallback ke Dummy mode
 
 **Tasks:**
-1. Install `ollama` Python library (`pip install ollama`)
-2. Implement `OllamaClient` class di `ai_brain.py`:
+1. ✅ Install `ollama` Python library (`pip install ollama`)
+2. ✅ Implement `OllamaClient` class di `ai_brain_v2.py`:
    ```python
    class OllamaClient:
        def __init__(self, model="llama3.2"):
@@ -141,17 +142,33 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 ```
 
 **Success Criteria:**
-- Ollama responds dalam <5s or fallback ke Dummy
-- No crashes jika Ollama mati
-- Confidence scores realistis (0.7-0.95)
-- Messages variatif dan context-aware
+- ✅ Ollama responds dalam <5s or fallback ke Dummy
+- ✅ No crashes jika Ollama mati
+- ✅ Confidence scores realistis (0.7-0.95)
+- ✅ Messages variatif dan context-aware (20+ pool)
+- ✅ Gacha system dengan weighted random
+- ✅ FSM bug fixed (IDLE → SUGGESTING)
+- ✅ Balanced cooldown/spam filters
 
-**Timeline**: 4 hours
+**Timeline**: 4 hours (actual: 3.5h + fixes)
+**Commits**: 11 commits (87db38e...e3c634f)
 
 ---
 
-### PHASE 3: Decision Engine Enhancement 🔧
+### PHASE 3: Decision Engine Enhancement 🔧 ⏭️ DEFERRED
+**Status**: ⏭️ Deferred to production hardening phase
 **Tujuan**: Implementasi confidence decay dan user preference learning
+
+**Rationale for Deferral**:
+- ConfidenceDecay code already exists in decision_engine.py
+- Not critical for MVP v0.2 user testing
+- Better to gather real user data first before tuning decay
+- Focus resources on Tauri (higher user value)
+
+**Quick Enhancement (15min)**:
+- Verify existing decay logic works
+- Add basic stats endpoint
+- Document for v0.3
 
 **Tasks:**
 1. Implement `ConfidenceDecay` class (sudah ada, enhance):
@@ -194,11 +211,12 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 
 ---
 
-### PHASE 4: Tauri Migration (The Body) 🖥️
+### PHASE 4: Tauri Migration (The Body) 🖥️🟡 IN PROGRESS
+**Status**: 🟡 Init complete, needs window config & testing
 **Tujuan**: Convert web app → native desktop app dengan Tauri
 
 **Tasks:**
-1. **Setup Tauri**:
+1. ✅ **Setup Tauri**:
    ```bash
    cd frontend
    npm install @tauri-apps/cli@latest @tauri-apps/api@latest
