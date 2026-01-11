@@ -90,10 +90,10 @@ class DummyModePool:
             Random message (no repetition)
         """
         if intent_type == IntentType.SUGGEST_HELP:
-            # Enforce 15-minute minimum between suggestions
+            # Enforce 15-minute minimum between suggestions (reduced to 30s for testing)
             now = time.time()
-            if now - self.last_suggest_time < 900:  # 15 minutes
-                logger.debug("Dummy mode cooldown active (15min rule)")
+            if now - self.last_suggest_time < 30:  # 30 seconds for v0.2 testing
+                logger.debug(f"Dummy mode cooldown active ({int(now - self.last_suggest_time)}s since last)")
                 return None
             
             # Choose message pool based on context
@@ -432,8 +432,8 @@ class AIBrainV2:
         idle_time = context.get('idle_time', 0)
         active_app = context.get('active_app', '').lower()
         
-        # Rule: Long idle in coding app
-        if idle_time >= 300 and ('code' in active_app or 'studio' in active_app):
+        # Rule: Idle in coding app (lowered to 60s for v0.2 testing, will be 300s in production)
+        if idle_time >= 60 and ('code' in active_app or 'studio' in active_app or 'python' in active_app):
             message = self.dummy_pool.get_message(IntentType.SUGGEST_HELP, context)
             if message:
                 confidence = self.dummy_pool.get_confidence(context)
