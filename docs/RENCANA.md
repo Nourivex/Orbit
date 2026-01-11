@@ -381,8 +381,11 @@ Menghubungkan semua layer dan memastikan sistem bekerja end-to-end.
 
 ### Frontend (Tauri)
 - **Framework**: Tauri v2
-- **UI**: HTML/CSS/JavaScript (vanilla atau Svelte)
-- **IPC**: Tauri commands
+- **UI Framework**: React (Vite)
+- **Styling**: Tailwind CSS (Wajib 3.4.*)
+- **Icons**: Lucide React (utama), React Icons (opsional)
+- **State** Handling: Local state (FSM-driven, non-global)
+- **IPC**: Tauri commands (typed JSON)
 - **Build**: Rust + Node.js
 
 ### DevOps
@@ -413,15 +416,30 @@ ORBIT/
 │   ├── main.py
 │   └── requirements.txt
 ├── frontend/
-│   ├── src/
-│   │   ├── main.js
-│   │   ├── app.html
-│   │   └── styles.css
-│   ├── src-tauri/
-│   │   ├── src/
-│   │   │   └── main.rs
-│   │   └── Cargo.toml
-│   └── package.json
+│     ├── src/
+│     │   ├── main.tsx
+│     │   ├── app.tsx
+│     │   ├── components/
+│     │   │   ├── OrbitWidget.tsx
+│     │   │   ├── RobotIcon.tsx
+│     │   │   ├── Bubble.tsx
+│     │   │   └── ActionButtons.tsx
+│     │   ├── hooks/
+│     │   │   └── useOrbitState.ts
+│     │   ├── styles/
+│     │   │   └── index.css   # Tailwind
+│     │   ├── types/
+│     │   │   └── orbit.ts
+│     │   └── ipc/
+│     │       └── orbit.ts
+│     ├── src-tauri/
+│     │   ├── src/
+│     │   │   └── main.rs
+│     │   └── Cargo.toml
+│     ├── tailwind.config.js
+│     ├── postcss.config.js
+│     ├── package.json
+│     └── vite.config.ts
 ├── docs/
 │   ├── RENCANA.md              # ← file ini
 │   ├── PROGRESS.md

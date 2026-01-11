@@ -1,0 +1,28 @@
+{
+  "watch_path": null,
+  "ai_model": "llama3.2",
+  "ai_mode": "auto",
+  "polling_interval": 10.0,
+  "ui": {
+    "position": "bottom-right",
+    "offset_x": 20,
+    "offset_y": 20,
+    "bubble_timeout": 60,
+    "animations": true
+  },
+  "behavior": {
+    "per_intent_cooldown": 180,
+    "global_cooldown": 60,
+    "dismiss_cooldown": 600,
+    "max_popups_per_hour": 5
+  },
+  "features": {
+    "auto_start": false,
+    "focus_mode_hotkey": "Ctrl+Shift+F",
+    "silent_hours": {
+      "enabled": false,
+      "start": "22:00",
+      "end": "08:00"
+    }
+  }
+}
