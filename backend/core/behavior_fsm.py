@@ -67,6 +67,7 @@ class BehaviorFSM:
     TRANSITIONS = {
         State.IDLE: {
             Event.CONTEXT_CHANGED: State.OBSERVING,
+            Event.INTENT_APPROVED: State.SUGGESTING,  # Allow direct IDLE → SUGGESTING
             Event.ENTER_FOCUS_MODE: State.COOLDOWN_GLOBAL
         },
         State.OBSERVING: {
@@ -348,8 +349,12 @@ class BehaviorController:
         Args:
             intent: Approved intent
         """
-        if self.fsm.current_state == State.OBSERVING:
+        # Allow transition from IDLE or OBSERVING to SUGGESTING
+        if self.fsm.current_state in (State.IDLE, State.OBSERVING):
+            logger.info(f"Intent approved, transitioning {self.fsm.current_state.value} → SUGGESTING")
             self.fsm.trigger_event(Event.INTENT_APPROVED, {'intent': intent})
+        else:
+            logger.warning(f"Cannot handle intent approval in state: {self.fsm.current_state.value}")
     
     def handle_user_dismiss(self):
         """Handle user dismissing popup"""
