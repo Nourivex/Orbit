@@ -406,13 +406,15 @@ class AIBrainV2:
         """
         self.stats['total_intents'] += 1
         
+        logger.debug(f"📊 Context: idle={context.get('idle_time', 0)}s, app={context.get('active_app', '?')}")
+        
         # Try Ollama first if available
         if self.ollama_client and self.ollama_client.available:
             intent = self.ollama_client.generate_intent(context)
             
             if intent:
                 self.stats['ollama_calls'] += 1
-                logger.info(f"🧠 Intent via Ollama: {intent.type.value} (conf: {intent.confidence:.2f})")
+                logger.info(f"🧠 Intent via Ollama: {intent.type.value} (conf: {intent.confidence:.2f}) | Msg: \"{intent.message}\"")
                 return intent
             else:
                 self.stats['failures'] += 1
@@ -432,21 +434,25 @@ class AIBrainV2:
         idle_time = context.get('idle_time', 0)
         active_app = context.get('active_app', '').lower()
         
+        logger.debug(f"💭 Dummy check: idle={idle_time}s, app={active_app}")
+        
         # Rule: Idle in coding app (lowered to 60s for v0.2 testing, will be 300s in production)
         if idle_time >= 60 and ('code' in active_app or 'studio' in active_app or 'python' in active_app):
             message = self.dummy_pool.get_message(IntentType.SUGGEST_HELP, context)
             if message:
                 confidence = self.dummy_pool.get_confidence(context)
-                logger.info(f"💭 Intent via Dummy: suggest_help (conf: {confidence:.2f})")
+                logger.info(f"💭 Intent via Dummy: suggest_help (conf: {confidence:.2f}) | Msg: \"{message}\"")
                 return Intent(
                     type=IntentType.SUGGEST_HELP,
                     confidence=confidence,
                     message=message,
                     reasoning=""  # Internal only
                 )
+            else:
+                logger.debug("💭 Dummy cooldown active, returning NONE")
         
         # Default: no intent
-        logger.debug("💭 Dummy: no interesting context")
+        logger.debug(f"💭 Dummy: no trigger (idle={idle_time}s < 60s or app not coding)")
         return Intent(
             type=IntentType.NONE,
             confidence=0.0,

@@ -241,3 +241,314 @@ TypeError: 'UIOutput' object is not subscriptable
 2026-01-11 11:35:18 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
 2026-01-11 11:35:28 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
 2026-01-11 11:35:38 - backend.core.ai_brain - INFO - 💭 Intent generated via Dummy: info
+2026-01-11 17:44:37 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 17:44:37 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 17:44:37 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 17:44:37 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 17:44:37 - utils.db - INFO - Database schema initialized
+2026-01-11 17:44:37 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 17:44:37 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 17:44:37 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 17:44:37 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 17:44:37 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 17:44:37 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 17:44:37 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 17:44:37 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 17:44:37 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 17:44:37 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 17:44:37 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 17:44:37 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 17:44:37 - __main__ - INFO - ============================================================
+2026-01-11 17:44:37 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 17:44:37 - __main__ - INFO - ============================================================
+2026-01-11 17:44:37 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 17:44:37 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 17:44:37 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 17:44:37 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 17:44:37 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 17:44:37 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 17:44:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:44:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:44:50 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 17:44:50 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 17:44:50 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 17:45:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:45:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 17:45:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:45:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:45:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 17:46:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:46:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 17:46:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:46:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:46:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:46:48 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.85)
+2026-01-11 17:46:48 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 17:46:48 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 17:47:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:47:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95)
+2026-01-11 17:47:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:47:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 17:47:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:47:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.50)
+2026-01-11 17:48:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:48:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 17:48:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:48:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:48:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90)
+2026-01-11 17:49:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:49:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:49:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:49:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:49:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:50:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:50:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:50:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:50:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:50:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:51:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:51:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65)
+2026-01-11 17:51:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:51:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:51:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:52:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:52:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:52:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:52:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:52:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:53:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:53:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 17:53:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:53:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:53:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:54:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 17:54:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:54:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:54:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 17:54:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:55:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95)
+2026-01-11 17:55:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:55:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:55:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:55:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:55:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:56:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 17:56:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:56:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:56:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:56:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:57:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:57:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:57:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:57:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 17:57:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:58:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95)
+2026-01-11 17:58:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:58:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 17:58:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:58:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 17:59:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 17:59:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:59:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:59:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:59:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 17:59:52 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 17:59:52 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 17:59:52 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:00:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65)
+2026-01-11 18:00:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:00:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:00:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95)
+2026-01-11 18:00:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:01:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:01:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:01:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:01:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:01:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:02:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:02:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:02:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:02:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:02:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:03:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:03:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95)
+2026-01-11 18:03:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:03:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65)
+2026-01-11 18:03:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 18:03:48 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 1.00)
+2026-01-11 18:03:48 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 18:03:48 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:03:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95)
+2026-01-11 18:04:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:04:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80)
+2026-01-11 18:04:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90)
+2026-01-11 18:04:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:04:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:05:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:05:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:05:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:05:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:05:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:06:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:06:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:06:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 18:06:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:06:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 18:07:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:07:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:07:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:07:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 18:07:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:08:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:08:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:08:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:08:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:08:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:10 - __main__ - WARNING - ⚠️ Failed to load dummy responses: Expecting value: line 1 column 1 (char 0)
+2026-01-11 18:09:10 - __main__ - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:09:10 - __main__ - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:09:10 - __main__ - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:09:10 - __main__ - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:09:12 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:14 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:17 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:09:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:10:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:10:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:10:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:10:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:10:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95)
+2026-01-11 18:11:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:11:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:11:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:11:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:11:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:12:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:12:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:12:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:12:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:12:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 18:12:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:13:04 - __main__ - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:13:04 - __main__ - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:13:04 - __main__ - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:13:04 - __main__ - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:13:04 - __main__ - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:13:05 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:13:08 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:13:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:13:11 - __main__ - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:13:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:13:28 - __main__ - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:13:28 - __main__ - INFO - AIBrainV2 initialized (mode: dummy, model: llama3.2)
+2026-01-11 18:13:28 - __main__ - INFO - 💭 Dummy gacha: 'Error nih, yuk kita debug bareng' (used 1x)
+2026-01-11 18:13:28 - __main__ - INFO - 💭 Intent via Dummy: suggest_help (conf: 0.85)
+2026-01-11 18:13:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:13:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90)
+2026-01-11 18:13:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 18:14:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:14:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:14:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:14:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:14:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:14:56 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 18:14:56 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:14:56 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:15:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:15:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:15:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:15:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:15:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:16:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 18:16:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:16:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90)
+2026-01-11 18:16:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:16:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:17:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:17:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:17:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:17:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:17:45 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 18:17:45 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 18:17:45 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 18:17:45 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 18:17:46 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 18:17:46 - __main__ - INFO - ============================================================
+2026-01-11 18:17:46 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 18:17:46 - __main__ - INFO -    Iterations: 170
+2026-01-11 18:17:46 - __main__ - INFO -    Intents Generated: 170
+2026-01-11 18:17:46 - __main__ - INFO -    Intents Approved: 5
+2026-01-11 18:17:46 - __main__ - INFO -    Intents Rejected: 165
+2026-01-11 18:17:46 - __main__ - INFO -    Errors: 0
+2026-01-11 18:17:46 - __main__ - INFO - ============================================================
+2026-01-11 18:17:46 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 18:18:16 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 18:18:16 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 18:18:16 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 18:18:16 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 18:18:16 - utils.db - INFO - Database schema initialized
+2026-01-11 18:18:16 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 18:18:16 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 18:18:16 - backend.core.ai_brain_v2 - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:18:16 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:18:16 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:18:16 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:18:16 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:18:16 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 180s, global: 60s, dismiss: 600s)
+2026-01-11 18:18:16 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 5, same window: 900s)
+2026-01-11 18:18:16 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 18:18:16 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 18:18:16 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 18:18:16 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 18:18:16 - __main__ - INFO - ============================================================
+2026-01-11 18:18:16 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 18:18:16 - __main__ - INFO - ============================================================
+2026-01-11 18:18:16 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 18:18:16 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 18:18:16 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 18:18:16 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 18:18:16 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 18:18:16 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 18:18:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:18:17 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 18:18:17 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:18:17 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:18:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 18:18:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:18:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00)
+2026-01-11 18:19:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:19:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:19:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70)
+2026-01-11 18:19:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95)
+2026-01-11 18:19:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:20:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:20:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60)
+2026-01-11 18:20:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:20:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90)
+2026-01-11 18:20:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:21:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:21:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:21:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75)
+2026-01-11 18:21:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:21:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85)
+2026-01-11 18:22:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80)
+2026-01-11 18:22:07 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 18:22:07 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 18:22:07 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 18:22:07 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 18:22:10 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 18:22:10 - __main__ - INFO - ============================================================
+2026-01-11 18:22:10 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 18:22:10 - __main__ - INFO -    Iterations: 20
+2026-01-11 18:22:10 - __main__ - INFO -    Intents Generated: 20
+2026-01-11 18:22:10 - __main__ - INFO -    Intents Approved: 1
+2026-01-11 18:22:10 - __main__ - INFO -    Intents Rejected: 19
+2026-01-11 18:22:10 - __main__ - INFO -    Errors: 0
+2026-01-11 18:22:10 - __main__ - INFO - ============================================================
+2026-01-11 18:22:10 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
