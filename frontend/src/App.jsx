@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './App.css'
 import LunaBubble from './components/LunaBubble'
 import LunaIcon from './components/LunaIcon'
@@ -107,6 +108,9 @@ function App() {
           onAction={handleAction}
         />
       )}
+      <Link to="/settings" className="settings-link" title="Settings">
+        ⚙️
+      </Link>
     </div>
   )
 }

@@ -5,9 +5,11 @@ Hybrid Ollama + Dummy with graceful fallback and variatif responses
 
 import random
 import time
+import json
 from typing import Dict, Any, Optional
 from datetime import datetime
 from enum import Enum
+from pathlib import Path
 
 try:
     import ollama
@@ -30,39 +32,59 @@ class AIMode(Enum):
 
 class DummyModePool:
     """
-    Pool of variatif dummy responses
-    Ensures no repetition and realistic suggestions
+    Pool of variatif dummy responses (loaded from JSON)
+    Ensures no repetition and context-aware suggestions
     """
     
-    def __init__(self):
-        self.suggest_help_messages = [
-            "Sudah 5 menit idle nih, butuh bantuan?",
-            "Lagi nyangkut? Aku bisa bantu cari solusi",
-            "Kayaknya lagi mikir keras ya, mau diskusi?",
-            "Mau aku rangkum progress hari ini?",
-            "Lagi stuck? Yuk brainstorming bareng",
-            "Butuh second opinion untuk kode ini?",
-            "Mau aku bantu debug masalah ini?",
-            "Kelihatannya lagi ribet, aku bisa support",
-            "Udah lama idle, perlu assistance?",
-            "Mau aku cari referensi buat masalah ini?",
-            "Lagi nyari solusi? Aku bisa bantu explore",
-            "Kayaknya ada yang ganjal, mau ku cek?",
-            "Butuh fresh perspective? Aku ready",
-            "Stuck di bagian mana? Cerita yuk",
-            "Mau ku carikan docs atau contoh kode?",
-        ]
-        
+    def __init__(self, responses_path: str = "data/dummy_responses.json"):
+        self.responses = self._load_responses(responses_path)
         self.last_message = None
         self.last_suggest_time = 0
         self.usage_count = {}  # Track message usage
     
-    def get_message(self, intent_type: IntentType) -> str:
+    def _load_responses(self, path: str) -> Dict:
+        """Load dummy responses from JSON file"""
+        try:
+            # Try multiple paths
+            paths_to_try = [
+                Path(__file__).parent.parent / path,  # backend/data/...
+                Path(__file__).parent.parent.parent / "backend" / path,  # root -> backend/data/...
+                Path(path)  # absolute
+            ]
+            
+            for json_path in paths_to_try:
+                if json_path.exists():
+                    with open(json_path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    logger.info(f"✅ Loaded {len(data.get('suggest_help', []))} dummy responses from {json_path}")
+                    return data
+            
+            logger.warning(f"⚠️ Could not find dummy responses file: {path}")
+            return self._get_fallback_responses()
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to load dummy responses: {e}")
+            return self._get_fallback_responses()
+    
+    def _get_fallback_responses(self) -> Dict:
+        """Fallback responses if JSON loading fails"""
+        return {
+            "suggest_help": [
+                "Butuh bantuan?",
+                "Mau aku bantu?",
+                "Lagi stuck nih?",
+                "Ada yang bisa ku bantu?",
+                "Mau diskusi masalahnya?"
+            ]
+        }
+    
+    def get_message(self, intent_type: IntentType, context: Dict[str, Any] = None) -> str:
         """
-        Get variatif message based on intent type
+        Get variatif message based on intent type and context
         
         Args:
             intent_type: Type of intent
+            context: Optional context for smarter selection
             
         Returns:
             Random message (no repetition)
@@ -74,21 +96,68 @@ class DummyModePool:
                 logger.debug("Dummy mode cooldown active (15min rule)")
                 return None
             
-            # Filter out last message and least-used messages
-            available = [m for m in self.suggest_help_messages if m != self.last_message]
+            # Choose message pool based on context
+            messages = self._select_pool(context)
             
-            # Pick least-used message
+            # Filter out last message and pick least-used
+            available = [m for m in messages if m != self.last_message]
+            
+            if not available:
+                available = messages  # Reset if all used
+            
+            # Pick least-used message (gacha-style with weight)
             available.sort(key=lambda m: self.usage_count.get(m, 0))
-            msg = available[0] if available else self.suggest_help_messages[0]
+            
+            # Weighted random (favor least-used)
+            weights = [1 / (self.usage_count.get(m, 0) + 1) for m in available]
+            msg = random.choices(available, weights=weights, k=1)[0]
             
             # Update tracking
             self.last_message = msg
             self.last_suggest_time = now
             self.usage_count[msg] = self.usage_count.get(msg, 0) + 1
             
+            logger.info(f"💭 Dummy gacha: '{msg}' (used {self.usage_count[msg]}x)")
             return msg
         
         return ""
+    
+    def _select_pool(self, context: Dict[str, Any]) -> list:
+        """Select appropriate message pool based on context"""
+        if not context:
+            return self.responses.get("suggest_help", [])
+        
+        idle_time = context.get('idle_time', 0)
+        error_count = context.get('error_count', 0)
+        hour = datetime.now().hour
+        
+        # Context-aware selection
+        if error_count > 0 and 'contexts' in self.responses:
+            ctx_messages = self.responses['contexts'].get('error_detected', [])
+            if ctx_messages:
+                return ctx_messages
+        
+        if idle_time >= 600 and 'contexts' in self.responses:  # 10 minutes
+            ctx_messages = self.responses['contexts'].get('long_idle', [])
+            if ctx_messages:
+                return ctx_messages
+        
+        # Time-based mood
+        if 'moods' in self.responses:
+            if 5 <= hour < 12:
+                mood_messages = self.responses['moods'].get('morning', [])
+            elif 12 <= hour < 17:
+                mood_messages = self.responses['moods'].get('afternoon', [])
+            elif 17 <= hour < 22:
+                mood_messages = self.responses['moods'].get('evening', [])
+            else:
+                mood_messages = self.responses['moods'].get('night', [])
+            
+            if mood_messages:
+                # Mix mood + suggest_help (50/50)
+                return mood_messages + self.responses.get("suggest_help", [])
+        
+        return self.responses.get("suggest_help", [])
     
     def get_confidence(self, context: Dict[str, Any]) -> float:
         """
@@ -357,7 +426,7 @@ class AIBrainV2:
         return self._generate_with_dummy(context)
     
     def _generate_with_dummy(self, context: Dict[str, Any]) -> Intent:
-        """Generate intent using dummy pool"""
+        """Generate intent using dummy pool with gacha system"""
         self.stats['dummy_calls'] += 1
         
         idle_time = context.get('idle_time', 0)
@@ -365,7 +434,7 @@ class AIBrainV2:
         
         # Rule: Long idle in coding app
         if idle_time >= 300 and ('code' in active_app or 'studio' in active_app):
-            message = self.dummy_pool.get_message(IntentType.SUGGEST_HELP)
+            message = self.dummy_pool.get_message(IntentType.SUGGEST_HELP, context)
             if message:
                 confidence = self.dummy_pool.get_confidence(context)
                 logger.info(f"💭 Intent via Dummy: suggest_help (conf: {confidence:.2f})")
@@ -404,7 +473,8 @@ def test_ai_brain_v2():
     print("AI Brain V2 Test")
     print("="*60)
     
-    brain = AIBrainV2(mode=AIMode.AUTO)
+    # Test DUMMY mode explicitly
+    brain = AIBrainV2(mode=AIMode.DUMMY)
     
     print(f"\nMode: {brain.mode.value}")
     if brain.ollama_client:
@@ -415,17 +485,21 @@ def test_ai_brain_v2():
         "active_app": "Code.exe",
         "window_title": "main.py",
         "idle_time": 350,
-        "recent_file_changes": 2
+        "recent_file_changes": 2,
+        "error_count": 1
     }
     
-    print("\nGenerating intents...")
-    for i in range(3):
+    print("\nGenerating intents with DUMMY mode (gacha system)...")
+    for i in range(5):
         print(f"\n--- Attempt {i+1} ---")
         intent = brain.generate_intent(context)
         print(f"Intent: {intent.type.value}")
         print(f"Confidence: {intent.confidence:.2f}")
         print(f"Message: {intent.message}")
-        time.sleep(1)
+        
+        # Wait to bypass cooldown for first attempt
+        if i == 0:
+            time.sleep(901)  # 15 min + 1 sec
     
     print("\n" + "-"*60)
     print("Statistics:")

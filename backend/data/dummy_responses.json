@@ -1,0 +1,68 @@
+{
+  "suggest_help": [
+    "Sudah 5 menit idle nih, butuh bantuan?",
+    "Lagi nyangkut? Aku bisa bantu cari solusi",
+    "Kayaknya lagi mikir keras ya, mau diskusi?",
+    "Mau aku rangkum progress hari ini?",
+    "Lagi stuck? Yuk brainstorming bareng",
+    "Butuh second opinion untuk kode ini?",
+    "Mau aku bantu debug masalah ini?",
+    "Kelihatannya lagi ribet, aku bisa support",
+    "Udah lama idle, perlu assistance?",
+    "Mau aku cari referensi buat masalah ini?",
+    "Lagi nyari solusi? Aku bisa bantu explore",
+    "Kayaknya ada yang ganjal, mau ku cek?",
+    "Butuh fresh perspective? Aku ready",
+    "Stuck di bagian mana? Cerita yuk",
+    "Mau ku carikan docs atau contoh kode?",
+    "Coding marathon ya? Istirahat sejenak?",
+    "Error lagi? Mari kita bedah bareng",
+    "Butuh bantuan troubleshoot?",
+    "Mau aku jelaskan konsepnya?",
+    "Lagi bingung sama syntax? Tanya aja"
+  ],
+  "remind": [
+    "Udah 2 jam fokus nih, istirahat dulu yuk!",
+    "Jangan lupa save progress kamu",
+    "Mungkin saatnya commit perubahan?",
+    "Inget break 5 menit tiap jam ya",
+    "Udah minum air? Tubuh perlu hidrasi"
+  ],
+  "info": [
+    "Fun fact: Kamu udah nulis 200 baris hari ini!",
+    "Progress bagus! 3 file edited successfully",
+    "Fokusnya mantap, udah 45 menit tanpa distraksi"
+  ],
+  "moods": {
+    "morning": [
+      "Pagi! Siap coding hari ini?",
+      "Semangat pagi! Ada yang bisa ku bantu?"
+    ],
+    "afternoon": [
+      "Siang! Gimana progressnya?",
+      "Udah lunch break? Energi perlu di-recharge"
+    ],
+    "evening": [
+      "Sore! Masih semangat coding?",
+      "Malam sudah tiba, jangan lupa istirahat"
+    ],
+    "night": [
+      "Malam! Jangan begadang terlalu keras ya",
+      "Larut malam nih, besok lanjut lagi?"
+    ]
+  },
+  "contexts": {
+    "long_idle": [
+      "Udah 10 menit idle, lagi mikir atau butuh bantuan?",
+      "Kayaknya lagi macet nih, mau aku bantu?"
+    ],
+    "error_detected": [
+      "Ada error terdeteksi, mau ku bantu analisis?",
+      "Error nih, yuk kita debug bareng"
+    ],
+    "file_changes": [
+      "Banyak perubahan nih, mau ku rangkum?",
+      "File aktif edited, progress bagus!"
+    ]
+  }
+}
