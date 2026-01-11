@@ -47,8 +47,8 @@ class CooldownManager:
     
     def __init__(
         self,
-        per_intent_cooldown: int = 180,      # 3 minutes
-        global_cooldown: int = 60,           # 1 minute
+        per_intent_cooldown: int = 10,       # 10s for v0.2 testing (180s production)
+        global_cooldown: int = 5,            # 5s for v0.2 testing (60s production)
         dismiss_cooldown: int = 600          # 10 minutes
     ):
         """
@@ -70,6 +70,7 @@ class CooldownManager:
         
         logger.info(f"CooldownManager initialized (per-intent: {per_intent_cooldown}s, "
                    f"global: {global_cooldown}s, dismiss: {dismiss_cooldown}s)")
+        logger.info("⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)")
     
     def can_show_intent(self, intent_type: IntentType) -> tuple[bool, str]:
         """
@@ -155,8 +156,8 @@ class SpamFilter:
     
     def __init__(
         self,
-        max_popups_per_hour: int = 5,
-        same_intent_window: int = 900  # 15 minutes
+        max_popups_per_hour: int = 100,      # 100 for v0.2 testing (5 production)
+        same_intent_window: int = 15         # 15s for v0.2 testing (900s production)
     ):
         """
         Initialize spam filter
@@ -174,6 +175,7 @@ class SpamFilter:
         
         logger.info(f"SpamFilter initialized (max/hour: {max_popups_per_hour}, "
                    f"same window: {same_intent_window}s)")
+        logger.info("⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)")
     
     def is_spam(self, intent_type: IntentType) -> tuple[bool, str]:
         """
