@@ -8,6 +8,7 @@ function App() {
   const [state, setState] = useState('idle')
   const [bubble, setBubble] = useState(null)
   const [visible, setVisible] = useState(false)
+  const [testMode, setTestMode] = useState(false)
 
   useEffect(() => {
     // Connect to backend IPC
@@ -31,6 +32,7 @@ function App() {
           actions: data.bubble.actions || []
         })
         setVisible(true)
+        setTestMode(false) // Real update, disable test
       } else {
         setVisible(false)
       }
@@ -41,18 +43,32 @@ function App() {
     }
   }, [])
 
+  const handleIconClick = () => {
+    console.log('🖱️ Luna icon clicked - showing test bubble')
+    setTestMode(true)
+    setState('suggesting')
+    setBubble({
+      text: 'Ini test bubble! Klik avatar untuk toggle.',
+      actions: ['Oke', 'Dismiss']
+    })
+    setVisible(!visible)
+  }
+
   const handleAction = (action) => {
     console.log('👤 User action:', action)
     
-    // Send action to backend
-    ipcBridge.send('user_action', {
-      action: action,
-      intent_id: bubble?.intent_id || null
-    })
+    // Send action to backend only if not test mode
+    if (!testMode) {
+      ipcBridge.send('user_action', {
+        action: action,
+        intent_id: bubble?.intent_id || null
+      })
+    }
     
-    if (action === 'Dismiss') {
+    if (action === 'Dismiss' || action === 'Oke') {
       setVisible(false)
-      setState('suppressed')
+      setState('idle')
+      setTestMode(false)
     } else if (action === 'Ya') {
       setState('executing')
       setBubble({
@@ -67,8 +83,8 @@ function App() {
 
   return (
     <div className="orbit-widget">
-      <LunaIcon state={state} />
-      {visible && bubble && state === 'suggesting' && (
+      <LunaIcon state={state} onClick={handleIconClick} />
+      {visible && bubble && (
         <LunaBubble
           text={bubble.text}
           actions={bubble.actions}
