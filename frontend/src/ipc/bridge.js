@@ -13,7 +13,7 @@ class IPCBridge {
     this.reconnectDelay = 2000
   }
 
-  connect(url = 'ws://localhost:8765') {
+  connect(url = 'ws://localhost:8012') {
     return new Promise((resolve, reject) => {
       try {
         this.ws = new WebSocket(url)

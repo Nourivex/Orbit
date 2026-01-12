@@ -5,7 +5,7 @@
   "identifier": "com.orbit.luna",
   "build": {
     "frontendDist": "../build",
-    "devUrl": "http://localhost:5173",
+    "devUrl": "http://localhost:3000",
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },
@@ -13,22 +13,36 @@
     "withGlobalTauri": true,
     "windows": [
       {
+        "label": "main",
         "title": "ORBIT Luna",
         "width": 400,
-        "height": 500,
-        "minWidth": 300,
-        "minHeight": 400,
+        "height": 150,
         "resizable": false,
         "fullscreen": false,
         "transparent": true,
         "decorations": false,
         "alwaysOnTop": true,
-        "skipTaskbar": false,
+        "skipTaskbar": true,
         "visible": true,
         "focus": false,
         "center": false,
         "x": null,
         "y": null
+      },
+      {
+        "label": "settings",
+        "title": "ORBIT Settings",
+        "width": 600,
+        "height": 700,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": false,
+        "decorations": true,
+        "alwaysOnTop": false,
+        "skipTaskbar": false,
+        "visible": false,
+        "focus": true,
+        "center": true
       }
     ],
     "security": {

@@ -17,7 +17,7 @@ class IPCServer:
     WebSocket server untuk komunikasi real-time dengan UI.
     """
     
-    def __init__(self, host: str = "localhost", port: int = 8765):
+    def __init__(self, host: str = "localhost", port: int = 8012):
         self.host = host
         self.port = port
         self.clients: Set[WebSocketServerProtocol] = set()
