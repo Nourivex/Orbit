@@ -1,11 +1,11 @@
 .luna-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
   width: 64px;
   height: 64px;
-  cursor: pointer;
+  cursor: move;
   animation: icon-in 0.4s ease-out;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 @keyframes icon-in {

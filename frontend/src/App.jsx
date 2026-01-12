@@ -123,9 +123,6 @@ function App() {
           onAction={handleAction}
         />
       )}
-      <Link to="/settings" className="settings-link" title="Settings">
-        ⚙️
-      </Link>
     </div>
   )
 }

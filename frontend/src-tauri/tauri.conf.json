@@ -47,11 +47,6 @@
     ],
     "security": {
       "csp": null
-    },
-    "trayIcon": {
-      "id": "main",
-      "iconPath": "icons/icon.ico",
-      "tooltip": "ORBIT Luna - AI Desktop Companion"
     }
   },
   "bundle": {
