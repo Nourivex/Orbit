@@ -15,11 +15,13 @@
 body {
   margin: 0;
   overflow: hidden;
+  background: transparent;
 }
 
 #root {
   width: 100vw;
   height: 100vh;
+  background: transparent;
 }
 
 .orbit-widget {

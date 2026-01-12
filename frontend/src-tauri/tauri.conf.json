@@ -1,8 +1,8 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Orbit",
-  "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "productName": "ORBIT Luna",
+  "version": "0.2.0",
+  "identifier": "com.orbit.luna",
   "build": {
     "frontendDist": "../build",
     "devUrl": "http://localhost:5173",
@@ -10,17 +10,34 @@
     "beforeBuildCommand": "npm run build"
   },
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Orbit",
-        "width": 800,
-        "height": 600,
-        "resizable": true,
-        "fullscreen": false
+        "title": "ORBIT Luna",
+        "width": 400,
+        "height": 500,
+        "minWidth": 300,
+        "minHeight": 400,
+        "resizable": false,
+        "fullscreen": false,
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": false,
+        "visible": true,
+        "focus": false,
+        "center": false,
+        "x": null,
+        "y": null
       }
     ],
     "security": {
       "csp": null
+    },
+    "trayIcon": {
+      "id": "main",
+      "iconPath": "icons/icon.ico",
+      "tooltip": "ORBIT Luna - AI Desktop Companion"
     }
   },
   "bundle": {

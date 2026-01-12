@@ -4,14 +4,19 @@ import './App.css'
 import LunaBubble from './components/LunaBubble'
 import LunaIcon from './components/LunaIcon'
 import ipcBridge from './ipc/bridge'
+import { useTauri } from './hooks/useTauri'
 
 function App() {
   const [state, setState] = useState('idle')
   const [bubble, setBubble] = useState(null)
   const [visible, setVisible] = useState(false)
   const [testMode, setTestMode] = useState(false)
+  
+  const { isTauri, isVisible: windowVisible, sendNotification, checkVisibility } = useTauri()
 
   useEffect(() => {
+    console.log('[ORBIT] Running in Tauri:', isTauri)
+    
     // Connect to backend IPC
     ipcBridge.connect('ws://localhost:8765')
       .then(() => {
@@ -22,7 +27,7 @@ function App() {
       })
 
     // Listen for UI updates from backend
-    ipcBridge.on('ui_update', (data) => {
+    ipcBridge.on('ui_update', async (data) => {
       console.log('%c📥 UI Update from Backend', 'background: #4CAF50; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold')
       console.group('Update Details')
       console.log('🎭 State:', data.state || 'idle')
@@ -44,11 +49,21 @@ function App() {
       setState(data.state || 'idle')
       
       if (data.bubble) {
-        setBubble({
-          text: data.bubble.text,
-          actions: data.bubble.actions || []
-        })
-        setVisible(true)
+        // Check if window is minimized to tray
+        const isWindowVisible = isTauri ? await checkVisibility() : true
+        
+        if (isTauri && !isWindowVisible) {
+          // Send Windows notification instead of bubble
+          console.log('[Tauri] Window minimized, sending notification')
+          sendNotification('ORBIT Luna', data.bubble.text)
+        } else {
+          // Show bubble normally
+          setBubble({
+            text: data.bubble.text,
+            actions: data.bubble.actions || []
+          })
+          setVisible(true)
+        }
         setTestMode(false) // Real update, disable test
       } else {
         setVisible(false)
@@ -58,7 +73,7 @@ function App() {
     return () => {
       ipcBridge.disconnect()
     }
-  }, [])
+  }, [isTauri, sendNotification, checkVisibility])
 
   const handleIconClick = () => {
     console.log('🖱️ Luna icon clicked - showing test bubble')

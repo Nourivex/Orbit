@@ -21,12 +21,13 @@ function LunaIcon({ state, onClick }) {
       onClick={onClick}
       style={{ cursor: onClick ? 'pointer' : 'default' }}
       title={onClick ? "Click untuk test bubble" : "Luna"}
+      data-tauri-drag-region
     >
-      <div className="icon-container">
-        <span className="icon-emoji">{getEmoji()}</span>
+      <div className="icon-container" data-tauri-drag-region>
+        <span className="icon-emoji" data-tauri-drag-region>{getEmoji()}</span>
       </div>
       {state === 'observing' && (
-        <div className="pulse-ring"></div>
+        <div className="pulse-ring" data-tauri-drag-region></div>
       )}
     </div>
   )

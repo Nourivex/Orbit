@@ -552,3 +552,1024 @@ TypeError: 'UIOutput' object is not subscriptable
 2026-01-11 18:22:10 - __main__ - INFO -    Errors: 0
 2026-01-11 18:22:10 - __main__ - INFO - ============================================================
 2026-01-11 18:22:10 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 18:25:31 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 18:25:31 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 18:25:31 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 18:25:31 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 18:25:31 - utils.db - INFO - Database schema initialized
+2026-01-11 18:25:31 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 18:25:31 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 18:25:31 - backend.core.ai_brain_v2 - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:25:31 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:25:31 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:25:31 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:25:31 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 10s, global: 5s, dismiss: 600s)
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 100, same window: 15s)
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 18:25:31 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 18:25:31 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 18:25:31 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 18:25:31 - __main__ - INFO - ============================================================
+2026-01-11 18:25:31 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 18:25:31 - __main__ - INFO - ============================================================
+2026-01-11 18:25:31 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 18:25:31 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 18:25:31 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 18:25:31 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 18:25:31 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 18:25:31 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 18:25:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bantu gimana nih?"
+2026-01-11 18:25:32 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 18:25:32 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:25:32 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:25:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu debug"
+2026-01-11 18:25:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:25:55 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 18:25:55 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:25:55 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:26:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:26:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:26:19 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 18:26:19 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:26:19 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:26:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:26:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 18:26:43 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.90)
+2026-01-11 18:26:43 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:26:43 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:26:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:27:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Stuck sih? Aku bisa bantu!"
+2026-01-11 18:27:07 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 18:27:07 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:27:07 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:27:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 18:27:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.50) | Msg: "Halo, kamu butuh bantuannya?"
+2026-01-11 18:27:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:27:43 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.95)
+2026-01-11 18:27:43 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:27:43 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:27:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Mau aku bantu?"
+2026-01-11 18:28:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 18:28:06 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 18:28:06 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:28:06 - __main__ - INFO - 🎨 FSM State: idle
+2026-01-11 18:28:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 18:28:18 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 18:28:18 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 18:28:18 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 18:28:18 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 18:28:19 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 18:28:19 - __main__ - INFO - ============================================================
+2026-01-11 18:28:19 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 18:28:19 - __main__ - INFO -    Iterations: 15
+2026-01-11 18:28:19 - __main__ - INFO -    Intents Generated: 15
+2026-01-11 18:28:19 - __main__ - INFO -    Intents Approved: 7
+2026-01-11 18:28:19 - __main__ - INFO -    Intents Rejected: 8
+2026-01-11 18:28:19 - __main__ - INFO -    Errors: 0
+2026-01-11 18:28:19 - __main__ - INFO - ============================================================
+2026-01-11 18:28:19 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 18:28:29 - __main__ - INFO - 💭 Dummy gacha: 'Ada error terdeteksi, mau ku bantu analisis?' (used 1x)
+2026-01-11 18:28:29 - __main__ - INFO - 💭 Intent via Dummy: suggest_help (conf: 0.83)
+2026-01-11 18:28:30 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 18:28:30 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 18:28:30 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 18:28:30 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 18:28:30 - utils.db - INFO - Database schema initialized
+2026-01-11 18:28:30 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 18:28:30 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 18:28:30 - backend.core.ai_brain_v2 - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:28:30 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:28:30 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:28:30 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:28:30 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 10s, global: 5s, dismiss: 600s)
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 100, same window: 15s)
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 18:28:30 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 18:28:30 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 18:28:30 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 18:28:30 - __main__ - INFO - ============================================================
+2026-01-11 18:28:30 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 18:28:30 - __main__ - INFO - ============================================================
+2026-01-11 18:28:30 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 18:28:30 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 18:28:30 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 18:28:30 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 18:28:30 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 18:28:30 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 18:28:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 18:28:32 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 18:28:32 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:28:32 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 18:28:32 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 18:28:32 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 18:28:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 18:28:43 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.85)
+2026-01-11 18:28:43 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 18:28:43 - backend.core.behavior_fsm - WARNING - Cannot handle intent approval in state: suggesting
+2026-01-11 18:28:43 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 18:28:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu butuh bantuan?"
+2026-01-11 18:28:57 - __main__ - INFO - 
+⚠️ Received signal 2
+2026-01-11 18:28:57 - __main__ - INFO - 🛑 Stopping ORBIT...
+2026-01-11 18:28:57 - backend.core.context_hub - INFO - Stopping ContextHub...
+2026-01-11 18:28:57 - monitors.file_watcher - INFO - File watcher stopped
+2026-01-11 18:29:00 - backend.core.context_hub - INFO - ContextHub stopped
+2026-01-11 18:29:00 - __main__ - INFO - ============================================================
+2026-01-11 18:29:00 - __main__ - INFO - 📊 ORBIT Session Statistics:
+2026-01-11 18:29:00 - __main__ - INFO -    Iterations: 3
+2026-01-11 18:29:00 - __main__ - INFO -    Intents Generated: 3
+2026-01-11 18:29:00 - __main__ - INFO -    Intents Approved: 2
+2026-01-11 18:29:00 - __main__ - INFO -    Intents Rejected: 1
+2026-01-11 18:29:00 - __main__ - INFO -    Errors: 0
+2026-01-11 18:29:00 - __main__ - INFO - ============================================================
+2026-01-11 18:29:00 - __main__ - INFO - 👋 ORBIT stopped. Goodbye!
+2026-01-11 18:38:55 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 18:38:55 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 18:38:55 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 18:38:55 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 18:38:55 - utils.db - INFO - Database schema initialized
+2026-01-11 18:38:55 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 18:38:55 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 18:38:55 - backend.core.ai_brain_v2 - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 18:38:55 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 18:38:55 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 18:38:55 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 18:38:55 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 30s, global: 15s, dismiss: 300s)
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 20, same window: 60s)
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 18:38:55 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 18:38:55 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 18:38:55 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 18:38:55 - __main__ - INFO - ============================================================
+2026-01-11 18:38:55 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 18:38:55 - __main__ - INFO - ============================================================
+2026-01-11 18:38:55 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 18:38:55 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 18:38:55 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 18:38:55 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 18:38:55 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 18:38:55 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 18:38:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:38:59 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.90)
+2026-01-11 18:38:59 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:38:59 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 18:38:59 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 18:38:59 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 18:39:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:39:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 18:39:22 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 18:39:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 18:39:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:39:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Butuh bantuan?"
+2026-01-11 18:40:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 18:40:09 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 18:40:09 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 18:40:09 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 18:40:09 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 18:40:09 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 18:40:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.50) | Msg: "Mau aku bantu apa?"
+2026-01-11 18:40:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 18:40:33 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 18:40:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 18:40:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 18:40:56 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.90)
+2026-01-11 18:40:56 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 18:40:56 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 18:40:56 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 18:40:56 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:38:44 - __main__ - INFO - 🔧 Initializing ORBIT layers...
+2026-01-11 19:38:44 - monitors.window_monitor - INFO - WindowMonitor initialized (polling interval: 3.0s)
+2026-01-11 19:38:44 - monitors.idle_detector - INFO - IdleDetector initialized
+2026-01-11 19:38:44 - monitors.file_watcher - INFO - FileWatcher initialized for: H:\AiProject\ORBIT
+2026-01-11 19:38:44 - utils.db - INFO - Database schema initialized
+2026-01-11 19:38:44 - utils.db - INFO - ContextDB initialized at data\orbit_context.db
+2026-01-11 19:38:44 - backend.core.context_hub - INFO - ContextHub initialized (polling: 3.0s)
+2026-01-11 19:38:44 - backend.core.ai_brain_v2 - INFO - ✅ Loaded 20 dummy responses from H:\AiProject\ORBIT\backend\data\dummy_responses.json
+2026-01-11 19:38:44 - backend.core.ai_brain_v2 - INFO - AIBrainV2 initialized (mode: auto, model: llama3.2)
+2026-01-11 19:38:44 - backend.core.ai_brain_v2 - WARNING - ⚠️ Model 'llama3.2' not found. Available: ['zyrex-12B:code', 'embeddinggemma:latest', 'embeddinggemma:300m', 'zyrex-12B:ai', 'zyrex-12B:amirah']
+2026-01-11 19:38:44 - backend.core.ai_brain_v2 - INFO - ✅ Using fallback model: llama3.1:8b
+2026-01-11 19:38:44 - backend.core.ai_brain_v2 - INFO - ✅ Ollama health check passed (model: llama3.1:8b)
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - CooldownManager initialized (per-intent: 30s, global: 15s, dismiss: 300s)
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - SpamFilter initialized (max/hour: 20, same window: 60s)
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - ⚠️ Using v0.2 TESTING thresholds (will restore production values after validation)
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - ConfidenceDecay initialized
+2026-01-11 19:38:44 - backend.core.decision_engine - INFO - DecisionEngine initialized
+2026-01-11 19:38:44 - backend.core.behavior_fsm - INFO - BehaviorFSM initialized in IDLE state
+2026-01-11 19:38:44 - backend.core.behavior_fsm - INFO - BehaviorController initialized
+2026-01-11 19:38:44 - __main__ - INFO - ============================================================
+2026-01-11 19:38:44 - __main__ - INFO - 🚀 Starting ORBIT Agent - Luna v0.1
+2026-01-11 19:38:44 - __main__ - INFO - ============================================================
+2026-01-11 19:38:44 - __main__ - INFO - ✅ IPC Server started on ws://localhost:8765
+2026-01-11 19:38:44 - monitors.file_watcher - INFO - Started watching: H:\AiProject\ORBIT (recursive=True)
+2026-01-11 19:38:44 - backend.core.context_hub - INFO - Context monitoring loop started
+2026-01-11 19:38:44 - backend.core.context_hub - INFO - ContextHub started
+2026-01-11 19:38:44 - __main__ - INFO - ✅ Context monitoring started
+2026-01-11 19:38:44 - __main__ - INFO - 🔄 Entering main orchestration loop
+2026-01-11 19:38:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:38:51 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.75)
+2026-01-11 19:38:51 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:38:51 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:38:51 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:38:51 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:39:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Mau aku bantu?"
+2026-01-11 19:39:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 19:39:16 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.80)
+2026-01-11 19:39:16 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 19:39:16 - backend.core.behavior_fsm - WARNING - Cannot handle intent approval in state: suggesting
+2026-01-11 19:39:16 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:39:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:39:29 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:39:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:39:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:39:54 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.75)
+2026-01-11 19:39:54 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:39:54 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:39:54 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:39:54 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:40:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bisakah aku membantu kamu sekarang?"
+2026-01-11 19:40:06 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:40:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Aku bisa membantu?"
+2026-01-11 19:40:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 19:40:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:40:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:40:56 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 19:40:56 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:40:56 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:40:56 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:40:56 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:41:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu butuh bantuannya?"
+2026-01-11 19:41:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:41:21 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:41:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:41:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.00) | Msg: ""
+2026-01-11 19:41:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 19:41:58 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 1.00)
+2026-01-11 19:41:58 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 19:41:58 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:41:58 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:41:58 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:42:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 19:42:10 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:42:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.75) | Msg: ""
+2026-01-11 19:42:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa bantu debug!"
+2026-01-11 19:42:35 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 19:42:35 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:42:35 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:42:35 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:42:35 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:42:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Mau aku bantu? kamu lagi ngumpul?"
+2026-01-11 19:42:47 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:42:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 19:42:59 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 1.00)
+2026-01-11 19:42:59 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 19:42:59 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:42:59 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:42:59 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:43:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:43:12 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:43:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 19:43:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa bantu debug atau cari solusi?"
+2026-01-11 19:43:37 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:43:37 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:43:37 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:43:37 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:43:37 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:43:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:43:49 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:44:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:44:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:44:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:44:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:44:39 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:44:39 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:44:39 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:44:39 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:44:39 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:44:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Ada masalah? Mau aku bantu?"
+2026-01-11 19:45:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Malam hari coding? Mau aku bantu?"
+2026-01-11 19:45:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:45:17 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:45:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bisa aku bantu? Mau aku coba cari solusinya?"
+2026-01-11 19:45:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu butuh bantuan?"
+2026-01-11 19:45:42 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.90)
+2026-01-11 19:45:42 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:45:42 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:45:42 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:45:42 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:45:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Sudah waktunya istirahat? Mau aku kasih saran?"
+2026-01-11 19:45:55 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:46:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:46:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bantuan dibutuhkan?"
+2026-01-11 19:46:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 19:46:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Butuh bantuan? Aku bisa membantu mencari solusi"
+2026-01-11 19:46:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 19:46:57 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.80)
+2026-01-11 19:46:57 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 19:46:57 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:46:57 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:46:57 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:47:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu debug?"
+2026-01-11 19:47:10 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:47:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu debug?"
+2026-01-11 19:47:23 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:47:23 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:47:23 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:47:23 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:47:23 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:47:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 19:47:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 19:47:48 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:48:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:48:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Mau aku bantu?"
+2026-01-11 19:48:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:48:25 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 19:48:25 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:48:25 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:48:25 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:48:25 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:48:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:48:38 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:48:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:49:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu mau aku bantu?"
+2026-01-11 19:49:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:49:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 19:49:28 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 19:49:28 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:49:28 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:49:28 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:49:28 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:49:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu sedang stuck? Mau aku bantu?"
+2026-01-11 19:49:40 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:49:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 19:50:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:50:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:50:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:50:31 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 19:50:31 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:50:31 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:50:31 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:50:31 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:50:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:50:44 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:50:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 19:51:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:51:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:51:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:51:34 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:51:34 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:51:34 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:51:34 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:51:34 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:51:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:51:46 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:51:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi stuck? Aku bisa bantu debug!"
+2026-01-11 19:52:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:52:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:52:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:52:36 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:52:36 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:52:36 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:52:36 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:52:36 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:52:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:52:49 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:53:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:53:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 19:53:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 19:53:26 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.70)
+2026-01-11 19:53:26 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 19:53:26 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:53:26 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:53:26 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:53:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu debug?"
+2026-01-11 19:53:39 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:53:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi kesulitan? Mau aku bantu?"
+2026-01-11 19:53:52 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 19:53:52 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:53:52 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:53:52 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:53:52 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:54:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:54:04 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:54:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:54:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi sibuk?"
+2026-01-11 19:54:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi stuck? Aku bisa membantu!"
+2026-01-11 19:54:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi sibuk di Discord? Mau aku tahu apa yang kamu cari?"
+2026-01-11 19:55:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:55:07 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 19:55:07 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 19:55:07 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 19:55:07 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 19:55:07 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 19:55:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:55:19 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 19:55:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu debug?"
+2026-01-11 19:55:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:55:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi buntu? Aku bisa membantu debug atau cari solusi?"
+2026-01-11 19:56:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:56:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bantu debug?"
+2026-01-11 19:56:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 19:56:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:57:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:57:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:57:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:57:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:57:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:58:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 19:58:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:58:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 19:58:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi kesulitan? Aku bisa bantu?"
+2026-01-11 19:58:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Mau aku bantu atau cari solusi?"
+2026-01-11 19:59:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 19:59:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi kesulitan? Aku bisa bantu"
+2026-01-11 19:59:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 19:59:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau berbicara tentang proyek kamu?"
+2026-01-11 19:59:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sulit? Mau aku bantu?"
+2026-01-11 20:00:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:00:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:00:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:00:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Malam hari nih! Mau aku bantu dengannya?"
+2026-01-11 20:01:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Ada yang perlu kamu cari?"
+2026-01-11 20:01:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:01:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bantuan diperlukan?"
+2026-01-11 20:01:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:01:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:02:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 20:02:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu sesuatu?"
+2026-01-11 20:02:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:02:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:02:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:03:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:03:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:03:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:03:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:03:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:04:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi buntu? Mau aku bantu debug?"
+2026-01-11 20:04:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:04:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:04:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu lagi tunggu siapa?"
+2026-01-11 20:04:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:05:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu mau aku bantu dengan apa?"
+2026-01-11 20:05:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu debug?"
+2026-01-11 20:05:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:05:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:06:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:06:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu butuh bantuannya sih?"
+2026-01-11 20:06:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:06:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:06:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:07:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Malamnya masih online? Mau aku tahu apa yang kamu lakukan?"
+2026-01-11 20:07:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:07:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:07:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:07:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:08:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:08:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:08:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu debug atau cari solusi?"
+2026-01-11 20:08:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu debug?"
+2026-01-11 20:08:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:09:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:09:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:09:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:09:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:09:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:10:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 20:10:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan halaman yang kamu buka?"
+2026-01-11 20:10:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:10:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:11:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 20:11:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:11:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.75) | Msg: ""
+2026-01-11 20:11:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu lagi sibuk? Mau aku bantu?"
+2026-01-11 20:11:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:12:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 20:12:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:12:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:12:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:12:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Ada yang perlu dibantu?"
+2026-01-11 20:13:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu perlu bantuannya?"
+2026-01-11 20:13:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:13:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:13:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:13:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:14:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa membantu!"
+2026-01-11 20:14:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:14:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 20:14:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu ada kerjaan?"
+2026-01-11 20:14:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Malam sudah menjelang, ada yang bisa aku lakukan untukmu?"
+2026-01-11 20:15:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bermasalah? Aku bisa membantu"
+2026-01-11 20:15:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 20:15:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 20:15:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Butuh bantuan? Aku siap membantu"
+2026-01-11 20:15:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:16:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Bentar lagi waktu tidur, apa yang kamu cari?"
+2026-01-11 20:16:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:16:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:16:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.00) | Msg: ""
+2026-01-11 20:17:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:17:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Malam sudah larut, ada yang bisa aku bantu?"
+2026-01-11 20:17:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:17:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:17:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:18:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:18:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:18:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:18:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:18:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa membantu!"
+2026-01-11 20:19:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 20:19:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:19:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:19:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuannya?"
+2026-01-11 20:19:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:20:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:20:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu kamu?"
+2026-01-11 20:20:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Lagi kesulitan? Aku bisa bantu!"
+2026-01-11 20:20:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Tunggu apa lagi? Mau aku bantu?"
+2026-01-11 20:20:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:21:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Ada yang bisa aku lakukan untukmu?"
+2026-01-11 20:21:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:21:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:21:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:22:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:22:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:22:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Mau aku bantu sini?"
+2026-01-11 20:22:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:22:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:23:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:23:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bisa aku bantu, ya?"
+2026-01-11 20:23:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:23:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:23:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:24:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk ngobrol?"
+2026-01-11 20:24:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi sibuk? Mau aku bantu?"
+2026-01-11 20:24:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Malam sudah larut, kamu butuh bantuan apa?"
+2026-01-11 20:24:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Kamu sedang sibuk? Mau aku bantu?"
+2026-01-11 20:24:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:25:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Hai! Kamu masih online? Mau aku bantu sesuatu?"
+2026-01-11 20:25:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:25:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan apa aja sih?"
+2026-01-11 20:25:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:25:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:26:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:26:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:26:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Aku bisa membantu"
+2026-01-11 20:26:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.00) | Msg: ""
+2026-01-11 20:27:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Hai! Kamu butuh bantuan dengan sesuatu?"
+2026-01-11 20:27:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:27:26 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu lagi sibuk di Discord?"
+2026-01-11 20:27:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:27:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Bisa aku bantu?"
+2026-01-11 20:28:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:28:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:28:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:28:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi kesulitan? Mau aku bantu?"
+2026-01-11 20:28:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:29:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:29:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.50) | Msg: "Bantu apa kamu lagi?"
+2026-01-11 20:29:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:29:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Stuck ngobrol? Aku bantu!"
+2026-01-11 20:29:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:30:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:30:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.75) | Msg: ""
+2026-01-11 20:30:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:30:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:30:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:31:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Mau aku bantu ngobrol?"
+2026-01-11 20:31:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:31:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:31:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu butuh bantuannya?"
+2026-01-11 20:31:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 20:32:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Ada yang bisa aku bantu, bro?"
+2026-01-11 20:32:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa membantu debug atau cari solusi?"
+2026-01-11 20:32:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 20:32:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:33:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:33:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:33:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:33:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:33:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:34:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:34:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 20:34:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Malamnya lagi sibuk dengan Discord? Mau aku bantu?"
+2026-01-11 20:34:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:34:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Bantuan? Mau aku bantu debug?"
+2026-01-11 20:35:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu"
+2026-01-11 20:35:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 20:35:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Mau aku bantu sama file kamu?"
+2026-01-11 20:35:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi gak jalan? Mau aku bantu?"
+2026-01-11 20:35:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:36:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:36:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:36:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu? Kamu lagi stuck?"
+2026-01-11 20:36:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:37:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bisakah aku membantu kamu dengan sesuatu?"
+2026-01-11 20:37:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:37:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:37:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:37:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:38:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuan atau klarifikasi?"
+2026-01-11 20:38:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:38:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi buntu? Mau aku bantu debug?"
+2026-01-11 20:38:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:38:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:38:55 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:38:55 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:38:55 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:38:55 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:38:55 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:39:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 20:39:07 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:39:20 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:39:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:39:32 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.85)
+2026-01-11 20:39:32 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 20:39:32 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:39:32 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:39:32 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:39:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:39:44 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:39:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi ngapain di sini?"
+2026-01-11 20:39:56 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 20:39:56 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:39:56 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:39:56 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:39:56 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:40:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:40:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:40:21 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:40:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.60) | Msg: ""
+2026-01-11 20:40:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:40:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:40:57 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.95)
+2026-01-11 20:40:57 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 20:40:57 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:40:57 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:40:57 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:41:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:41:09 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:41:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Mau aku tahu apa yang kamu cari di Discord?"
+2026-01-11 20:41:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:41:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:41:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:41:59 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:41:59 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:41:59 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:41:59 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:41:59 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:42:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:42:11 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:42:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:42:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:42:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:43:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk sih? Mau aku bantu?"
+2026-01-11 20:43:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 20:43:14 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 20:43:14 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:43:14 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:43:14 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:43:14 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:43:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:43:27 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:43:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu bisa butuh bantuannya?"
+2026-01-11 20:43:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 20:44:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:44:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu bisa butuh bantuan? Aku ada untuk membantu!"
+2026-01-11 20:44:17 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 20:44:17 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:44:17 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:44:17 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:44:17 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:44:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 20:44:29 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:44:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:44:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.50) | Msg: "Bisakah aku bantu kamu dengan sesuatu?"
+2026-01-11 20:45:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 20:45:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:45:19 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:45:19 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:45:19 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:45:19 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:45:19 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:45:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:45:32 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:45:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:45:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 20:45:56 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.80)
+2026-01-11 20:45:56 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 20:45:56 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:45:56 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:45:56 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:46:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:46:09 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:46:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:46:22 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:46:22 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:46:22 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:46:22 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:46:22 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:46:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Halo! Kamu perlu bantuan?"
+2026-01-11 20:46:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Bosan ngoding? Mau aku bantu?"
+2026-01-11 20:46:47 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:46:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:47:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:47:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:47:24 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:47:24 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:47:24 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:47:24 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:47:24 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:47:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Bantu apa kamu sekarang?"
+2026-01-11 20:47:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu lagi sibuk? Mau aku bantu?"
+2026-01-11 20:47:50 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:48:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:48:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu debug?"
+2026-01-11 20:48:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Mau aku bantu? Kamu butuh asisten?"
+2026-01-11 20:48:28 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.75)
+2026-01-11 20:48:28 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:48:28 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:48:28 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:48:28 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:48:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:48:40 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:48:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:49:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 20:49:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu butuh bantuan?"
+2026-01-11 20:49:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:49:31 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:49:31 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:49:31 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:49:31 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:49:31 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:49:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:49:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:50:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi browsing? Mau aku bantu?"
+2026-01-11 20:50:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:50:22 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:50:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu cari solusi?"
+2026-01-11 20:50:34 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.80)
+2026-01-11 20:50:34 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:50:34 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:50:34 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:50:34 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:50:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi lupa apa? Aku bisa membantu!"
+2026-01-11 20:50:47 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:50:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:51:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:51:11 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 1.00)
+2026-01-11 20:51:11 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 20:51:11 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:51:11 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:51:11 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:51:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Ada yang bisa aku bantu ya?"
+2026-01-11 20:51:23 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:51:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuannya?"
+2026-01-11 20:51:36 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.70)
+2026-01-11 20:51:36 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:51:36 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:51:36 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:51:36 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:51:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:51:48 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:52:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Malam masih lama? Mau aku bantu?"
+2026-01-11 20:52:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:52:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 20:52:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:52:39 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.75)
+2026-01-11 20:52:39 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:52:39 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:52:39 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:52:39 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:52:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi sibuk, mau aku bantu?"
+2026-01-11 20:53:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:53:05 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:53:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:53:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi kesulitan di Discord? Mau aku bantu?"
+2026-01-11 20:53:43 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:53:43 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:53:43 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:53:43 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:53:43 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:53:43 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:53:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:53:55 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:54:08 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan? Mau aku membantu?"
+2026-01-11 20:54:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu debug!"
+2026-01-11 20:54:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu masih nyetrum? Mau aku bantu dengan sesuatu?"
+2026-01-11 20:54:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 20:54:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:54:58 - backend.core.decision_engine - INFO - Intent APPROVED: none (confidence: 0.90)
+2026-01-11 20:54:58 - __main__ - INFO - ✅ Intent approved: IntentType.NONE
+2026-01-11 20:54:58 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 20:54:58 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 20:54:58 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:55:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:55:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:55:23 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.85)
+2026-01-11 20:55:23 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 20:55:23 - backend.core.behavior_fsm - WARNING - Cannot handle intent approval in state: suggesting
+2026-01-11 20:55:23 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 20:55:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:55:35 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 20:55:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu debug?"
+2026-01-11 20:56:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:56:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Ada masalah atau kamu butuh bantuan?"
+2026-01-11 20:56:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi nyari sesuatu?"
+2026-01-11 20:56:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu butuh bantuan? Mau aku bantu?"
+2026-01-11 20:56:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Ada yang perlu bantuan?"
+2026-01-11 20:57:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:57:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:57:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:57:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:57:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:58:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 20:58:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi buntu? Mau aku bantu?"
+2026-01-11 20:58:31 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Lagi apa sih?"
+2026-01-11 20:58:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Malam sudah larut, kamu perlu istirahat juga?"
+2026-01-11 20:58:56 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:59:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:59:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 20:59:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 20:59:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 20:59:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 21:00:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:00:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:00:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:00:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:01:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:01:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:01:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:01:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa bantu debug atau cari solusi?"
+2026-01-11 21:01:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:02:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi kesulitan? Mau aku bantu?"
+2026-01-11 21:02:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:02:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu debug?"
+2026-01-11 21:02:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Malam masih ada pekerjaan? Mau aku bantu?"
+2026-01-11 21:03:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:03:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 21:03:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 21:03:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 21:04:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu masih dalam proyek? Mau aku bantu?"
+2026-01-11 21:04:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stres? Mau aku bantu?"
+2026-01-11 21:04:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 21:04:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu?"
+2026-01-11 21:04:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 21:05:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 21:05:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 21:05:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 21:05:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Butuh bantuan?"
+2026-01-11 21:05:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:06:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 21:06:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:06:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:06:47 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:06:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:07:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:07:24 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 21:07:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi stuck? Aku bisa bantu debug atau cari solusi"
+2026-01-11 21:07:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 21:08:01 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi sibuk? Mau aku bantu?"
+2026-01-11 21:08:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:08:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Kamu butuh bantuan? Aku bisa membantu!"
+2026-01-11 21:08:38 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 21:08:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:09:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Sudah lama kamu tidak aktif, apa yang bisa aku bantu?"
+2026-01-11 21:09:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:09:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:09:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Aku bisa membantu!"
+2026-01-11 21:09:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:10:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 21:10:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.70) | Msg: ""
+2026-01-11 21:10:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:10:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:10:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:11:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuan?"
+2026-01-11 21:11:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.75) | Msg: ""
+2026-01-11 21:11:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 21:11:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi sibuk? Mau aku bantu?"
+2026-01-11 21:11:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu sama kamu?"
+2026-01-11 21:12:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:12:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu?"
+2026-01-11 21:12:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 21:12:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:12:54 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:13:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.90) | Msg: ""
+2026-01-11 21:13:44 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:13:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Aku bisa bantu debug"
+2026-01-11 21:14:09 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:14:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi kerjaan masih ada? Mau aku bantu?"
+2026-01-11 21:14:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 21:14:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:14:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 21:15:10 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Ada yang bisa aku bantu?"
+2026-01-11 21:15:22 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi gak sibuk?"
+2026-01-11 21:15:34 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu?"
+2026-01-11 21:15:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:15:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:16:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:16:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:16:36 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:16:48 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Hai, kamu butuh bantuan?"
+2026-01-11 21:17:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.65) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:17:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:17:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:17:59 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu apa sih?"
+2026-01-11 21:18:11 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:18:23 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:18:35 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:18:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Aku bisa bantu?"
+2026-01-11 21:19:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:19:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Malam? Mau aku bantu?"
+2026-01-11 21:19:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu debug?"
+2026-01-11 21:19:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu butuh bantuan? Aku siap membantu!"
+2026-01-11 21:19:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Kamu lagi ngalaman masalah? Mau aku bantu?"
+2026-01-11 21:20:04 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan?"
+2026-01-11 21:20:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 21:20:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:20:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:20:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu butuh bantuan?"
+2026-01-11 21:21:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:21:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:21:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Butuh bantuan?"
+2026-01-11 21:22:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Hai! Kamu butuh bantuan tentang sesuatu?"
+2026-01-11 21:22:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Ada yang bisa aku bantu, siapa tahu?"
+2026-01-11 21:23:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 21:23:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Apakah kamu butuh bantuan?"
+2026-01-11 21:23:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Mau aku bantu?"
+2026-01-11 21:23:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi nggak sibuk? Aku bisa bantu?"
+2026-01-11 21:23:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:24:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 1.00) | Msg: ""
+2026-01-11 21:24:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Bantu apa kamu lagi?"
+2026-01-11 21:24:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu sama apa?"
+2026-01-11 21:24:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.95) | Msg: ""
+2026-01-11 21:24:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:25:03 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.00) | Msg: ""
+2026-01-11 21:25:16 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Butuh bantuan? Aku ada!"
+2026-01-11 21:25:28 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Bingung? Mau aku bantu?"
+2026-01-11 21:25:40 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:25:52 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:26:05 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:26:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:26:29 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:26:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.80) | Msg: ""
+2026-01-11 21:26:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu perlu bantuan?"
+2026-01-11 21:27:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:27:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:27:30 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuan? Aku bisa membantu!"
+2026-01-11 21:27:42 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:27:55 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 21:28:07 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:28:19 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:28:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:28:51 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.70) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:29:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Butuh bantuan?"
+2026-01-11 21:29:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:29:46 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Ada masalah? Aku bisa membantu"
+2026-01-11 21:29:58 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Mau aku bantu?"
+2026-01-11 21:30:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.00) | Msg: ""
+2026-01-11 21:30:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:30:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu?"
+2026-01-11 21:30:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:31:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:31:17 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Mau aku bantu cari file yang kamu butuh?"
+2026-01-11 21:31:32 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Bantu dibutuhin? Mau aku tahu apa yang salah?"
+2026-01-11 21:33:00 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Bantuannya diperlukan? Aku bisa membantu dengan sesuatu"
+2026-01-11 21:33:13 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:33:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuk? Mau aku bantu debug?"
+2026-01-11 21:33:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:33:49 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:34:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:35:15 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
+2026-01-11 21:35:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Kamu butuh bantuannya?"
+2026-01-11 21:35:41 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.60) | Msg: "Mau aku bantu?"
+2026-01-11 21:35:53 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu debug atau cari solusi?"
+2026-01-11 21:36:06 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:36:18 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:37:21 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: none (conf: 0.85) | Msg: ""
+2026-01-11 21:37:33 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Mau aku bantu?"
+2026-01-11 21:37:45 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Mau aku bantu dengan sesuatu?"
+2026-01-11 21:37:57 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.80) | Msg: "Ada yang perlu dibantu?"
+2026-01-11 21:38:12 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi bingung? Mau aku bantu?"
+2026-01-11 21:38:25 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi ngeluhin kode kamu?"
+2026-01-11 21:38:37 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:38:50 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.95) | Msg: "Lagi stuck? Aku bisa bantu!"
+2026-01-11 21:39:02 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.75) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:39:02 - backend.core.decision_engine - INFO - Intent APPROVED: suggest_help (confidence: 0.75)
+2026-01-11 21:39:02 - __main__ - INFO - ✅ Intent approved: IntentType.SUGGEST_HELP
+2026-01-11 21:39:02 - backend.core.behavior_fsm - INFO - Intent approved, transitioning idle → SUGGESTING
+2026-01-11 21:39:02 - backend.core.behavior_fsm - INFO - State transition: idle -> suggesting (event: intent_approved)
+2026-01-11 21:39:02 - __main__ - INFO - 🎨 FSM State: suggesting
+2026-01-11 21:39:14 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.90) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:39:14 - backend.core.behavior_fsm - INFO - State transition: suggesting -> idle (event: timeout)
+2026-01-11 21:39:27 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Lagi stuck? Mau aku bantu?"
+2026-01-11 21:39:39 - backend.core.ai_brain_v2 - INFO - 🧠 Intent via Ollama: suggest_help (conf: 0.85) | Msg: "Kamu lagi stuck? Mau aku bantu?"
