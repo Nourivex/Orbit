@@ -1,4 +1,43 @@
-# PROGRESS LOG — ORBIT MVP v0.1
+# PROGRESS LOG — ORBIT MVP
+
+## 📅 12 Januari 2026 — Quality Adjustment Phase 4
+
+### 🔧 Refinement: Tauri Migration Plan
+**Context**: Phase 4 (Tauri Migration) rencana diperluas dengan detail teknis yang lebih komprehensif untuk mencegah trial-error saat implementasi.
+
+**Changes Made**:
+1. **Window Configuration Enhancement**:
+   - Menambahkan konfigurasi dual-window: `main` (ghost mode) dan `settings` (normal window)
+   - Spesifikasi lengkap properties untuk transparency dan always-on-top behavior
+   - `skipTaskbar: true` untuk main window agar tidak memenuhi taskbar
+
+2. **CSS Cleanup Strategy**:
+   - Documented cara menghapus background putih default yang mengganggu transparency
+   - Reset CSS untuk `html`, `body`, `#root` dengan `background: transparent`
+   - Guideline untuk memastikan hanya Luna widget yang memiliki styling
+
+3. **System Tray Implementation**:
+   - Rust-side: System tray dengan menu "Show/Hide Luna", "Settings", "Quit"
+   - Event handler untuk toggle visibility dan open settings window
+   - React-side: Context menu di `LunaIcon.jsx` untuk klik kanan
+
+4. **Complete Configuration Example**:
+   - Full `tauri.conf.json` dengan dual-window setup
+   - System tray icon configuration
+   - Allowlist permissions yang precise (no over-permission)
+
+**Impact**:
+- Timeline Phase 4 updated: 5h → 6h (additional tray/menu work)
+- Clearer implementation path, reduces risk of rework
+- Better UX: System tray access tanpa taskbar clutter
+
+**Files Modified**:
+- `docs/RENCANA_v0.2.md` - Phase 4 section expanded
+- `docs/PROGRESS.md` - This entry
+
+**Commit**: Pending after this update
+
+---
 
 ## 📅 11 Januari 2026
 

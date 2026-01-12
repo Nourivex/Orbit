@@ -213,16 +213,205 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 
 ### PHASE 4: Tauri Migration (The Body) 🖥️🟡 IN PROGRESS
 **Status**: 🟡 Init complete, needs window config & testing
-**Tujuan**: Convert web app → native desktop app dengan Tauri
+**Tujuan**: Convert web app → native desktop app dengan Tauri + Ghost Mode transparency
 
 **Tasks:**
-1. ✅ **Setup Tauri**:
-   ```bash
-   cd frontend
-   npm install @tauri-apps/cli@latest @tauri-apps/api@latest
-   npm run tauri init
+
+#### 1. Window Configuration (Ghost Mode)
+   
+   **Main Window Configuration** (`label: main`):
+   - Konfigurasi untuk widget Luna yang transparan dan non-intrusive
+   - Properties yang harus diset:
+     ```json
+     {
+       "label": "main",
+       "title": "ORBIT - Luna",
+       "width": 400,
+       "height": 500,
+       "resizable": false,
+       "transparent": true,          // Ghost mode: tembus pandang
+       "decorations": false,         // No title bar/borders
+       "alwaysOnTop": true,          // Stay above other windows
+       "skipTaskbar": true,          // ❗ Tidak muncul di taskbar (akses via Tray)
+       "visible": true,
+       "focus": false,               // Tidak steal focus dari user
+       "x": null,                    // Will be calculated dynamically
+       "y": null
+     }
+     ```
+   
+   **Settings Window Configuration** (`label: settings`):
+   - Window kedua untuk panel pengaturan ORBIT
+   - Properties yang harus diset:
+     ```json
+     {
+       "label": "settings",
+       "title": "ORBIT Settings",
+       "width": 600,
+       "height": 700,
+       "resizable": true,
+       "transparent": false,         // Normal window
+       "decorations": true,          // Has title bar (normal window)
+       "alwaysOnTop": false,
+       "skipTaskbar": false,         // Muncul di taskbar saat dibuka
+       "visible": false,             // ❗ Default hidden (show on demand)
+       "center": true
+     }
+     ```
+
+#### 2. CSS Cleanup (Hapus Kotak Putih/Background)
+   
+   **Masalah**: Default CSS sering membuat background putih yang mengganggu transparency.
+   
+   **Solusi** - Refactor `frontend/src/index.css` & `App.css`:
+   ```css
+   /* index.css - Global reset untuk transparency */
+   html, body, #root {
+     margin: 0;
+     padding: 0;
+     background: transparent;      /* ❗ Kunci utama ghost mode */
+     overflow: hidden;             /* No scrollbars */
+     width: 100vw;
+     height: 100vh;
+   }
+   
+   body {
+     font-family: 'Segoe UI', Tahoma, sans-serif;
+     -webkit-font-smoothing: antialiased;
+   }
+   
+   /* App.css - Container transparency */
+   .App {
+     background: transparent;       /* No white box */
+     width: 100%;
+     height: 100%;
+     position: relative;
+   }
+   
+   /* Pastikan hanya komponen Luna yang visible */
+   .luna-container {
+     /* Only this has background/styling */
+   }
    ```
-2. **Configure `src-tauri/tauri.conf.json`**:
+
+#### 3. System Tray & Context Menu
+   
+   **A. Rust-side System Tray** (`src-tauri/src/main.rs`):
+   ```rust
+   use tauri::{
+     CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent,
+     Manager
+   };
+   
+   fn main() {
+     // Build system tray menu
+     let show_hide = CustomMenuItem::new("toggle", "Show/Hide Luna");
+     let settings = CustomMenuItem::new("settings", "Settings");
+     let quit = CustomMenuItem::new("quit", "Quit");
+     
+     let tray_menu = SystemTrayMenu::new()
+       .add_item(show_hide)
+       .add_item(settings)
+       .add_native_item(SystemTrayMenuItem::Separator)
+       .add_item(quit);
+     
+     let system_tray = SystemTray::new().with_menu(tray_menu);
+     
+     tauri::Builder::default()
+       .system_tray(system_tray)
+       .on_system_tray_event(|app, event| match event {
+         SystemTrayEvent::MenuItemClick { id, .. } => {
+           match id.as_str() {
+             "toggle" => {
+               let window = app.get_window("main").unwrap();
+               if window.is_visible().unwrap() {
+                 window.hide().unwrap();
+               } else {
+                 window.show().unwrap();
+               }
+             }
+             "settings" => {
+               let settings_window = app.get_window("settings").unwrap();
+               settings_window.show().unwrap();
+               settings_window.set_focus().unwrap();
+             }
+             "quit" => {
+               std::process::exit(0);
+             }
+             _ => {}
+           }
+         }
+         _ => {}
+       })
+       .run(tauri::generate_context!())
+       .expect("error while running tauri application");
+   }
+   ```
+   
+   **B. React Context Menu** (`LunaIcon.jsx`):
+   ```jsx
+   import { invoke } from '@tauri-apps/api/tauri';
+   
+   const LunaIcon = () => {
+     const handleContextMenu = (e) => {
+       e.preventDefault();
+       
+       // Option 1: Trigger Rust native menu
+       invoke('show_context_menu');
+       
+       // Option 2: Show custom React menu
+       // setShowMenu(true);
+     };
+     
+     return (
+       <div 
+         className="luna-icon"
+         onContextMenu={handleContextMenu}
+       >
+         {/* Luna mascot */}
+       </div>
+     );
+   };
+   ```
+
+#### 4. Position Window to Bottom-Right
+   
+   Dynamically calculate window position saat startup:
+   ```javascript
+   // src/main.jsx or App.jsx
+   import { appWindow } from '@tauri-apps/api/window';
+   import { primaryMonitor } from '@tauri-apps/api/window';
+   
+   async function positionWindow() {
+     const monitor = await primaryMonitor();
+     const screenWidth = monitor.size.width;
+     const screenHeight = monitor.size.height;
+     
+     await appWindow.setPosition({
+       type: 'Physical',
+       x: screenWidth - 420,   // 400px width + 20px margin
+       y: screenHeight - 520   // 500px height + 20px margin
+     });
+   }
+   
+   // Call on app mount
+   positionWindow();
+   ```
+
+#### 5. Backend Integration Strategy
+   
+   **MVP v0.2 Approach** (Simplified):
+   - Keep Python backend as **separate process** (no sidecar bundling yet)
+   - User workflow:
+     1. Run `start_backend.bat` (starts Python IPC server)
+     2. Run Tauri app (connects to localhost:8765)
+   - Benefits: Faster iteration, easier debugging
+   
+   **Future (v0.3)**: Bundle Python as Tauri sidecar for single .exe distribution
+
+#### 6. Tauri Configuration Complete Example
+   
+   **Update `src-tauri/tauri.conf.json`**:
    ```json
    {
      "build": {
@@ -232,63 +421,75 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
      "tauri": {
        "windows": [
          {
+           "label": "main",
            "title": "ORBIT - Luna",
            "width": 400,
            "height": 500,
            "resizable": false,
-           "fullscreen": false,
            "transparent": true,
            "decorations": false,
            "alwaysOnTop": true,
            "skipTaskbar": true,
            "visible": true,
-           "x": null,
-           "y": null,
            "focus": false
+         },
+         {
+           "label": "settings",
+           "title": "ORBIT Settings",
+           "width": 600,
+           "height": 700,
+           "resizable": true,
+           "transparent": false,
+           "decorations": true,
+           "alwaysOnTop": false,
+           "skipTaskbar": false,
+           "visible": false,
+           "center": true
          }
        ],
+       "systemTray": {
+         "iconPath": "icons/tray-icon.png",
+         "iconAsTemplate": true
+       },
        "allowlist": {
          "all": false,
          "window": {
            "all": true,
            "setPosition": true,
-           "setSize": true
+           "setSize": true,
+           "show": true,
+           "hide": true,
+           "setFocus": true
          }
        }
      }
    }
    ```
-3. **Update CSS untuk transparency**:
-   - Set `background: transparent` di root
-   - Handle click-through areas
-4. **Position window to bottom-right**:
-   ```javascript
-   import { appWindow } from '@tauri-apps/api/window';
+
+#### 7. Build & Testing
    
-   appWindow.setPosition({
-     type: 'Physical',
-     x: screenWidth - 420,
-     y: screenHeight - 520
-   });
-   ```
-5. **Backend integration**:
-   - Keep Python backend as separate process (no sidecar for MVP v0.2)
-   - User runs both `start_backend.bat` + Tauri app
-   - (Future: Bundle Python as sidecar in v0.3)
-6. **Build testing**:
    ```bash
-   npm run tauri dev   # Development mode
-   npm run tauri build # Production .exe
+   # Development mode (hot reload)
+   cd frontend
+   npm run tauri dev
+   
+   # Production build
+   npm run tauri build
+   # Output: src-tauri/target/release/bundle/
    ```
 
 **Success Criteria:**
-- Tauri window transparent dengan Luna floating di pojok kanan bawah
-- Always-on-top berfungsi (tidak tertutup window lain)
-- Tidak ada taskbar button (skipTaskbar: true)
-- Click-through pada area kosong, interactive di widget
-- .exe build berhasil dan berjalan standalone
+- ✅ Main window transparent dengan Luna floating di pojok kanan bawah
+- ✅ Always-on-top berfungsi (tidak tertutup window lain)
+- ✅ Tidak ada taskbar button untuk main window (skipTaskbar: true)
+- ✅ System Tray icon muncul dengan menu "Show/Hide", "Settings", "Quit"
+- ✅ Right-click pada Luna menampilkan context menu
+- ✅ Settings window dapat dibuka dan tertutup dengan normal
+- ✅ Background 100% transparan (no white box)
+- ✅ Click-through pada area kosong, interactive di Luna widget
+- ✅ .exe build berhasil dan berjalan standalone
 
-**Timeline**: 5 hours
+**Timeline**: 6 hours (updated from 5h due to additional tray/menu work)
 
 ---
 
