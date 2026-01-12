@@ -45,19 +45,19 @@ function LunaIcon({ state, onClick }) {
   const handleMouseUp = () => {
     if (isDragging) {
       setIsDragging(false)
-      
+
       // Auto-snap to nearest edge
       const screenWidth = window.innerWidth
       const screenHeight = window.innerHeight
       const iconSize = 64
       const margin = 20
-      
+
       const centerX = position.x + iconSize / 2
       const centerY = position.y + iconSize / 2
-      
+
       let finalX = position.x
       let finalY = position.y
-      
+
       // Snap to left or right edge
       if (centerX < screenWidth / 2) {
         // Snap to left
@@ -66,10 +66,10 @@ function LunaIcon({ state, onClick }) {
         // Snap to right
         finalX = screenWidth - iconSize - margin
       }
-      
+
       // Keep Y within bounds
       finalY = Math.max(margin, Math.min(screenHeight - iconSize - margin, position.y))
-      
+
       setPosition({ x: finalX, y: finalY })
     }
   }
@@ -93,22 +93,22 @@ function LunaIcon({ state, onClick }) {
   }
 
   return (
-    <div 
+    <div
       className={`luna-icon luna-icon-${state}`}
       onMouseDown={handleMouseDown}
       onClick={handleClick}
-      style={{ 
+      style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
         cursor: isDragging ? 'grabbing' : 'grab'
       }}
-      title=\"Luna - Drag to move\"
+      title="Luna - Drag to move"
     >
-      <div className=\"icon-container\">
-        <span className=\"icon-emoji\">{getEmoji()}</span>
+      <div className="icon-container">
+        <span className="icon-emoji">{getEmoji()}</span>
       </div>
       {state === 'observing' && (
-        <div className=\"pulse-ring\"></div>
+        <div className="pulse-ring"></div>
       )}
     </div>
   )
