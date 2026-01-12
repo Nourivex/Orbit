@@ -5,9 +5,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: transparent;       /* No white box */
+  background-color: transparent !important;  /* Force no white box */
+  background: transparent !important;
   overflow: hidden;
   pointer-events: none;          /* Click-through untuk area kosong */
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* Root font configuration */
@@ -26,13 +29,22 @@
   box-sizing: border-box;
 }
 
-/* Luna widget container - Only this has visible styling */
+/* Luna widget container - Flexbox for relative positioning */
 .orbit-widget {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: transparent;
   pointer-events: none;          /* Click-through untuk area kosong */
+  display: flex;
+  flex-direction: row-reverse;   /* Icon di kanan, bubble di kiri */
+  align-items: flex-end;         /* Align to bottom */
+  justify-content: flex-start;   /* Start from right */
+  gap: 10px;                     /* Space between avatar and bubble */
+  padding: 20px;                 /* Margin from edges */
+  z-index: 9999;                 /* Always on top */
 }
 
 .luna-container {

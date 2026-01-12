@@ -1,11 +1,13 @@
 .luna-icon {
-  position: absolute;
+  position: relative;            /* Changed from absolute - now flows with flexbox */
   width: 64px;
   height: 64px;
-  cursor: move;
+  cursor: pointer;
   animation: icon-in 0.4s ease-out;
   user-select: none;
   -webkit-user-drag: none;
+  pointer-events: auto;          /* Enable interaction */
+  flex-shrink: 0;                /* Don't shrink in flexbox */
 }
 
 @keyframes icon-in {

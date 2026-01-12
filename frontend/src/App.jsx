@@ -5,26 +5,47 @@ import LunaBubble from './components/LunaBubble'
 import LunaIcon from './components/LunaIcon'
 import ipcBridge from './ipc/bridge'
 import { useTauri } from './hooks/useTauri'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 
 function App() {
   const [state, setState] = useState('idle')
   const [bubble, setBubble] = useState(null)
   const [visible, setVisible] = useState(false)
   const [testMode, setTestMode] = useState(false)
+  const [windowLabel, setWindowLabel] = useState('main')  // Default to main
+  const [isReady, setIsReady] = useState(false)
   
   const { isTauri, isVisible: windowVisible, sendNotification, checkVisibility } = useTauri()
 
+  // FIRST: Detect window label immediately
   useEffect(() => {
-    console.log('[ORBIT] Running in Tauri:', isTauri)
+    const detectWindow = async () => {
+      if (isTauri) {
+        try {
+          const window = await getCurrentWindow()
+          const label = window.label
+          console.log('🪟 Current Window Label:', label)
+          setWindowLabel(label || 'main')  // Fallback to main
+        } catch (err) {
+          console.error('❌ Failed to get window label:', err)
+          setWindowLabel('main')  // Fallback to main on error
+        }
+      }
+      setIsReady(true)
+    }
+    detectWindow()
+  }, [isTauri])
+
+  // SECOND: Connect to IPC only for main window
+  useEffect(() => {
+    if (!isReady) return
+    if (windowLabel !== 'main') {
+      console.log('⏭️ Skipping IPC connection for window:', windowLabel)
+      return
+    }
     
-    // Connect to backend IPC
-    ipcBridge.connect('ws://localhost:8765')
-      .then(() => {
-        console.log('✅ Connected to ORBIT backend')
-      })
-      .catch((err) => {
-        console.error('❌ Failed to connect to backend:', err)
-      })
+    console.log('[ORBIT] Running in Tauri:', isTauri)
+    console.log('[ORBIT] Connecting to backend IPC...')
 
     // Listen for UI updates from backend
     ipcBridge.on('ui_update', async (data) => {
@@ -73,7 +94,7 @@ function App() {
     return () => {
       ipcBridge.disconnect()
     }
-  }, [isTauri, sendNotification, checkVisibility])
+  }, [isReady, windowLabel, isTauri, sendNotification, checkVisibility])
 
   const handleIconClick = () => {
     console.log('🖱️ Luna icon clicked - showing test bubble')
@@ -113,6 +134,23 @@ function App() {
     }
   }
 
+  // Loading state while detecting window
+  if (!isReady) {
+    return <div style={{ background: 'transparent' }} />
+  }
+
+  // Render settings window
+  if (isTauri && windowLabel === 'settings') {
+    return (
+      <div className="settings-container" style={{ padding: '20px', background: 'white', width: '100%', height: '100vh' }}>
+        <h1>ORBIT Settings</h1>
+        <p>Settings page untuk konfigurasi ORBIT Luna.</p>
+        <p>Coming soon in v0.3...</p>
+      </div>
+    )
+  }
+
+  // Default: Render main widget (Luna + Bubble)
   return (
     <div className="orbit-widget">
       <LunaIcon state={state} onClick={handleIconClick} />

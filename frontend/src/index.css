@@ -2,7 +2,8 @@
 html, body, #root {
   margin: 0;
   padding: 0;
-  background: transparent;      /* Kunci utama ghost mode */
+  background-color: transparent !important;  /* Force ghost mode */
+  background: transparent !important;
   overflow: hidden;             /* No scrollbars */
   width: 100vw;
   height: 100vh;

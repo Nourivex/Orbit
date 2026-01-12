@@ -16,7 +16,7 @@
         "label": "main",
         "title": "ORBIT Luna",
         "width": 400,
-        "height": 150,
+        "height": 200,
         "resizable": false,
         "fullscreen": false,
         "transparent": true,
