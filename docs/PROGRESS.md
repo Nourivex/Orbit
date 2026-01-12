@@ -1,6 +1,46 @@
 # PROGRESS LOG — ORBIT MVP
 
-## 📅 12 Januari 2026 — Quality Adjustment Phase 4
+## 📅 12 Januari 2026 — Quality Adjustment Phase 4 (Round 2)
+
+### 🔧 Enhancement: Smart Development Orchestration
+**Context**: Lycus feedback mengenai DX pain points — orphan Python processes dan port conflicts.
+
+**Additional Changes to Phase 4**:
+
+1. **Smart Dev Orchestration with `concurrently`**:
+   - Install `concurrently` sebagai dev dependency
+   - Setup `npm run dev:orbit` untuk coordinated backend+frontend startup
+   - Flag `-k` untuk auto-kill semua proses saat Tauri window ditutup
+   
+2. **Standardized Port Configuration**:
+   - Frontend (Vite): Fixed port **3000** (di `vite.config.js`)
+   - Backend (Python): Fixed port **8012** (di `ipc_server.py`)
+   - Update IPC bridge untuk match backend port
+   - Benefit: No more "address already in use" errors
+   
+3. **Window Size Adjustment**:
+   - Main window height: 500px → **150px** (lebih compact untuk widget)
+   - Tetap width 400px
+   
+4. **Tauri Config Update**:
+   - `devPath`: localhost:5173 → **localhost:3000** (match Vite)
+   - System tray click behavior: Klik kiri toggle visibility
+   
+**Developer Experience Impact**:
+- **Before**: Manual start 2 terminals, manual kill, sering lupa kill Python → port conflict
+- **After**: `npm run dev:orbit` → close window → semua mati otomatis ✨
+
+**Files Modified**:
+- `docs/RENCANA_v0.2.md` - Phase 4 section expanded with orchestration details
+- `docs/PROGRESS.md` - This entry
+
+**Timeline Adjustment**: 6h → 7h (tambahan 1h untuk setup orchestration)
+
+**Commit**: Pending after this update
+
+---
+
+## 📅 12 Januari 2026 — Quality Adjustment Phase 4 (Round 1)
 
 ### 🔧 Refinement: Tauri Migration Plan
 **Context**: Phase 4 (Tauri Migration) rencana diperluas dengan detail teknis yang lebih komprehensif untuk mencegah trial-error saat implementasi.

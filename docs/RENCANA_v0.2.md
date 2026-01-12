@@ -398,16 +398,101 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
    positionWindow();
    ```
 
-#### 5. Backend Integration Strategy
+#### 5. Backend Integration Strategy & Smart Dev Orchestration
    
-   **MVP v0.2 Approach** (Simplified):
+   **A. MVP v0.2 Approach** (Simplified):
    - Keep Python backend as **separate process** (no sidecar bundling yet)
-   - User workflow:
-     1. Run `start_backend.bat` (starts Python IPC server)
-     2. Run Tauri app (connects to localhost:8765)
    - Benefits: Faster iteration, easier debugging
+   - **Future (v0.3)**: Bundle Python as Tauri sidecar for single .exe distribution
    
-   **Future (v0.3)**: Bundle Python as Tauri sidecar for single .exe distribution
+   **B. Development Orchestration** (Kill-Switch Problem Fix):
+   
+   **Problem**: Saat Tauri dev window ditutup, terminal Python backend sering tertinggal nyala, menyebabkan:
+   - Port conflict saat restart (address already in use)
+   - Orphan processes memakan resource
+   - Harus manual kill task via Task Manager
+   
+   **Solution**: Setup `concurrently` untuk coordinated process management
+   
+   **Implementation Steps**:
+   
+   1. **Install Dependency**:
+      ```bash
+      cd frontend
+      npm install --save-dev concurrently
+      ```
+   
+   2. **Port Configuration** (Standardisasi):
+      
+      **Frontend - Update `vite.config.js`**:
+      ```javascript
+      import { defineConfig } from 'vite'
+      import react from '@vitejs/plugin-react'
+      
+      export default defineConfig({
+        plugins: [react()],
+        server: {
+          port: 3000,           // ⚠️ Fixed port untuk konsistensi
+          strictPort: true,     // Fail jika port sudah dipakai
+        }
+      })
+      ```
+      
+      **Backend - Update `backend/ipc_server.py`**:
+      ```python
+      # IPC Server Configuration
+      HOST = "localhost"
+      PORT = 8012  # ⚠️ Fixed port (bukan 8765 lagi)
+      
+      async def main():
+          server = await websockets.serve(handle_client, HOST, PORT)
+          logger.info(f"IPC Server running on ws://{HOST}:{PORT}")
+          await server.wait_closed()
+      ```
+      
+      **Update Frontend IPC Bridge - `src/ipc/bridge.js`**:
+      ```javascript
+      const WS_URL = 'ws://localhost:8012';  // Match backend port
+      ```
+   
+   3. **Update `package.json` Scripts**:
+      ```json
+      {
+        "scripts": {
+          "dev": "vite",
+          "dev:backend": "cd ../backend && python ipc_server.py",
+          "dev:orbit": "concurrently -k \"npm run dev:backend\" \"npm run tauri dev\"",
+          "tauri": "tauri",
+          "tauri:dev": "tauri dev",
+          "build": "vite build",
+          "tauri:build": "tauri build"
+        }
+      }
+      ```
+      
+      **Key flags**:
+      - `-k` atau `--kill-others`: Kill semua proses saat salah satu mati
+      - `\"npm run dev:backend\"`: Start Python backend dulu
+      - `\"npm run tauri dev\"`: Kemudian start Tauri (butuh Vite siap)
+   
+   4. **New Developer Workflow**:
+      ```bash
+      # Old way (MANUAL, RISKY):
+      # Terminal 1: cd backend && python ipc_server.py
+      # Terminal 2: cd frontend && npm run tauri dev
+      # Problem: Harus manual kill keduanya
+      
+      # ✅ New way (ONE COMMAND):
+      cd frontend
+      npm run dev:orbit
+      # Close Tauri window → Python backend otomatis mati juga!
+      ```
+   
+   **Benefits**:
+   - ✅ No more orphan Python processes
+   - ✅ Port conflicts eliminated
+   - ✅ Single command untuk start/stop semua
+   - ✅ Konsisten dengan modern dev practices (Next.js, Remix style)
 
 #### 6. Tauri Configuration Complete Example
    
@@ -415,7 +500,7 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
    ```json
    {
      "build": {
-       "devPath": "http://localhost:5173",
+       "devPath": "http://localhost:3000",  // ⚠️ Match Vite port
        "distDir": "../dist"
      },
      "tauri": {
@@ -424,12 +509,12 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
            "label": "main",
            "title": "ORBIT - Luna",
            "width": 400,
-           "height": 500,
+           "height": 150,           // ⚠️ Reduced height (widget, bukan full window)
            "resizable": false,
            "transparent": true,
            "decorations": false,
            "alwaysOnTop": true,
-           "skipTaskbar": true,
+           "skipTaskbar": true,     // ⚠️ No taskbar clutter
            "visible": true,
            "focus": false
          },
@@ -469,27 +554,35 @@ Keep message in Bahasa Indonesia, casual tone, max 100 chars.
 #### 7. Build & Testing
    
    ```bash
-   # Development mode (hot reload)
+   # ✅ NEW: Orchestrated development (RECOMMENDED)
    cd frontend
-   npm run tauri dev
+   npm run dev:orbit    # Starts backend + Tauri in one command
+   
+   # Old: Manual development (still works, but tedious)
+   # Terminal 1: cd backend && python ipc_server.py
+   # Terminal 2: cd frontend && npm run tauri dev
    
    # Production build
-   npm run tauri build
+   npm run tauri:build
    # Output: src-tauri/target/release/bundle/
    ```
 
 **Success Criteria:**
-- ✅ Main window transparent dengan Luna floating di pojok kanan bawah
+- ✅ Main window transparent dengan Luna floating di pojok kanan bawah (400x150px)
 - ✅ Always-on-top berfungsi (tidak tertutup window lain)
 - ✅ Tidak ada taskbar button untuk main window (skipTaskbar: true)
 - ✅ System Tray icon muncul dengan menu "Show/Hide", "Settings", "Quit"
+- ✅ Klik kiri tray icon: Toggle visibility Luna widget
+- ✅ Klik kanan tray icon: Buka context menu
 - ✅ Right-click pada Luna menampilkan context menu
 - ✅ Settings window dapat dibuka dan tertutup dengan normal
 - ✅ Background 100% transparan (no white box)
 - ✅ Click-through pada area kosong, interactive di Luna widget
+- ✅ **DX**: `npm run dev:orbit` starts everything, close window kills all
+- ✅ **DX**: Port conflicts tidak pernah terjadi (fixed ports: 3000, 8012)
 - ✅ .exe build berhasil dan berjalan standalone
 
-**Timeline**: 6 hours (updated from 5h due to additional tray/menu work)
+**Timeline**: 7 hours (updated: +1h untuk orchestration setup)
 
 ---
 
