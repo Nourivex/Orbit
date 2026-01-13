@@ -14,35 +14,24 @@
     "windows": [
       {
         "label": "main",
-        "title": "ORBIT Luna",
-        "width": 400,
+        "url": "/",
+        "width": 450,
         "height": 200,
-        "resizable": false,
-        "fullscreen": false,
-        "transparent": true,
         "decorations": false,
+        "transparent": true,
         "alwaysOnTop": true,
+        "resizable": false,
         "skipTaskbar": true,
-        "visible": true,
-        "focus": false,
-        "center": false,
-        "x": null,
-        "y": null
+        "visible": true
       },
       {
         "label": "settings",
-        "title": "ORBIT Settings",
-        "width": 600,
-        "height": 700,
-        "resizable": true,
-        "fullscreen": false,
-        "transparent": false,
+        "url": "/",
+        "width": 800,
+        "height": 600,
         "decorations": true,
-        "alwaysOnTop": false,
-        "skipTaskbar": false,
-        "visible": false,
-        "focus": true,
-        "center": true
+        "transparent": false,
+        "visible": false
       }
     ],
     "security": {

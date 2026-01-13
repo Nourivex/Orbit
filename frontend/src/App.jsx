@@ -1,168 +1,119 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import './App.css'
 import LunaBubble from './components/LunaBubble'
 import LunaIcon from './components/LunaIcon'
 import ipcBridge from './ipc/bridge'
 import { useTauri } from './hooks/useTauri'
 import { getCurrentWindow } from '@tauri-apps/api/window'
+// Pastikan path Settings benar, atau buat component dummy jika belum ada
+// import Settings from './pages/Settings' 
 
 function App() {
+  // 1. STATE AWAL HARUS NULL (Jangan 'main')
+  const [windowLabel, setWindowLabel] = useState(null) 
+  
   const [state, setState] = useState('idle')
   const [bubble, setBubble] = useState(null)
   const [visible, setVisible] = useState(false)
-  const [testMode, setTestMode] = useState(false)
-  const [windowLabel, setWindowLabel] = useState('main')  // Default to main
-  const [isReady, setIsReady] = useState(false)
   
-  const { isTauri, isVisible: windowVisible, sendNotification, checkVisibility } = useTauri()
+  // Ambil helper dari hook
+  const { isTauri, sendNotification } = useTauri()
 
-  // FIRST: Detect window label immediately
+  // 2. DETEKSI IDENTITAS WINDOW (CRITICAL)
   useEffect(() => {
-    const detectWindow = async () => {
+    const identifyWindow = async () => {
       if (isTauri) {
         try {
-          const window = await getCurrentWindow()
-          const label = window.label
-          console.log('🪟 Current Window Label:', label)
-          setWindowLabel(label || 'main')  // Fallback to main
+          const win = await getCurrentWindow()
+          console.log('🪟 Window Identified:', win.label)
+          setWindowLabel(win.label)
         } catch (err) {
-          console.error('❌ Failed to get window label:', err)
-          setWindowLabel('main')  // Fallback to main on error
+          console.error('❌ Failed to identify window:', err)
+          // Hanya fallback ke main jika benar-benar error fatal
+          setWindowLabel('main') 
         }
+      } else {
+        // Mode browser (dev tanpa tauri) -> Anggap main
+        setWindowLabel('main')
       }
-      setIsReady(true)
     }
-    detectWindow()
+    identifyWindow()
   }, [isTauri])
 
-  // SECOND: Connect to IPC only for main window
+  // 3. EFEK SAMPING (IPC) - HANYA UNTUK MAIN WINDOW
   useEffect(() => {
-    if (!isReady) return
-    if (windowLabel !== 'main') {
-      console.log('⏭️ Skipping IPC connection for window:', windowLabel)
-      return
-    }
-    
-    console.log('[ORBIT] Running in Tauri:', isTauri)
-    console.log('[ORBIT] Connecting to backend IPC...')
+    // Jaga-jaga: Jika label belum tau atau BUKAN main, stop.
+    if (windowLabel !== 'main') return 
 
-    // Listen for UI updates from backend
-    ipcBridge.on('ui_update', async (data) => {
-      console.log('%c📥 UI Update from Backend', 'background: #4CAF50; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold')
-      console.group('Update Details')
-      console.log('🎭 State:', data.state || 'idle')
-      console.log('😊 Emotion:', data.emotion || 'neutral')
-      console.log('👁️ Visible:', data.visible !== false)
-      
-      if (data.bubble) {
-        console.log('%c💬 Bubble Chat Active', 'color: #2196F3; font-weight: bold')
-        console.log('  📝 Message:', data.bubble.text)
-        console.log('  🎯 Actions:', data.bubble.actions || [])
-        if (data.bubble.intent_id) {
-          console.log('  🆔 Intent ID:', data.bubble.intent_id)
-        }
-      } else {
-        console.log('💬 Bubble: None')
-      }
-      console.groupEnd()
-      
-      setState(data.state || 'idle')
-      
-      if (data.bubble) {
-        // Check if window is minimized to tray
-        const isWindowVisible = isTauri ? await checkVisibility() : true
+    console.log('✅ Main Window Logic Activated')
+    
+    const handleUiUpdate = (data) => {
+        console.log('📥 UI Update:', data)
+        setState(data.state || 'idle')
         
-        if (isTauri && !isWindowVisible) {
-          // Send Windows notification instead of bubble
-          console.log('[Tauri] Window minimized, sending notification')
-          sendNotification('ORBIT Luna', data.bubble.text)
+        if (data.bubble) {
+             setBubble({ 
+               text: data.bubble.text, 
+               actions: data.bubble.actions || [] 
+             })
+             setVisible(true)
         } else {
-          // Show bubble normally
-          setBubble({
-            text: data.bubble.text,
-            actions: data.bubble.actions || []
-          })
-          setVisible(true)
+             setVisible(false)
         }
-        setTestMode(false) // Real update, disable test
-      } else {
-        setVisible(false)
-      }
-    })
+    }
+
+    // Connect listener
+    ipcBridge.on('ui_update', handleUiUpdate)
 
     return () => {
       ipcBridge.disconnect()
     }
-  }, [isReady, windowLabel, isTauri, sendNotification, checkVisibility])
+  }, [windowLabel]) // Re-run hanya jika windowLabel confirm 'main'
 
-  const handleIconClick = () => {
-    console.log('🖱️ Luna icon clicked - showing test bubble')
-    setTestMode(true)
-    setState('suggesting')
-    setBubble({
-      text: 'Ini test bubble! Klik avatar untuk toggle.',
-      actions: ['Oke', 'Dismiss']
-    })
-    setVisible(!visible)
+  // --- RENDER GATEKEEPER ---
+
+  // A. Sedang Loading / Identitas belum tau? JANGAN RENDER APAPUN.
+  if (windowLabel === null) {
+    return null // Layar kosong, tidak ada logic yang jalan
   }
 
-  const handleAction = (action) => {
-    console.log('👤 User action:', action)
-    
-    // Send action to backend only if not test mode
-    if (!testMode) {
-      ipcBridge.send('user_action', {
-        action: action,
-        intent_id: bubble?.intent_id || null
-      })
-    }
-    
-    if (action === 'Dismiss' || action === 'Oke') {
-      setVisible(false)
-      setState('idle')
-      setTestMode(false)
-    } else if (action === 'Ya') {
-      setState('executing')
-      setBubble({
-        text: 'Sedang diproses...',
-        actions: []
-      })
-    } else if (action === 'Nanti') {
-      setVisible(false)
-      setState('idle')
-    }
-  }
-
-  // Loading state while detecting window
-  if (!isReady) {
-    return <div style={{ background: 'transparent' }} />
-  }
-
-  // Render settings window
-  if (isTauri && windowLabel === 'settings') {
+  // B. Apakah ini Window Settings?
+  if (windowLabel === 'settings') {
     return (
-      <div className="settings-container" style={{ padding: '20px', background: 'white', width: '100%', height: '100vh' }}>
-        <h1>ORBIT Settings</h1>
-        <p>Settings page untuk konfigurasi ORBIT Luna.</p>
-        <p>Coming soon in v0.3...</p>
+      <div className="settings-container" style={{ padding: '20px', background: 'white', height: '100vh', overflow: 'auto' }}>
+        <h2>Pengaturan ORBIT</h2>
+        <p>Panel konfigurasi (v0.2)</p>
       </div>
     )
   }
 
-  // Default: Render main widget (Luna + Bubble)
-  return (
-    <div className="orbit-widget">
-      <LunaIcon state={state} onClick={handleIconClick} />
-      {visible && bubble && (
-        <LunaBubble
-          text={bubble.text}
-          actions={bubble.actions}
-          onAction={handleAction}
+  // C. Apakah ini Window Main? (Widget)
+  if (windowLabel === 'main') {
+    return (
+      <div className="orbit-widget">
+         {/* Render Bubble jika ada */}
+         {visible && bubble && (
+          <LunaBubble
+            text={bubble.text}
+            actions={bubble.actions}
+            onAction={(action) => ipcBridge.send('user_action', { action })}
+          />
+        )}
+        
+        {/* Render Avatar */}
+        <LunaIcon 
+          state={state} 
+          onClick={() => {
+              // Manual trigger test
+              ipcBridge.send('manual_trigger', { type: 'poke' })
+          }} 
         />
-      )}
-    </div>
-  )
+      </div>
+    )
+  }
+
+  // D. Fallback (Unknown Window)
+  return null
 }
 
 export default App
